@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import { BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey } from '@mui/icons-material';
+import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey } from '@mui/icons-material';
 
 
 export default function Sidebar() {
@@ -20,6 +20,10 @@ export default function Sidebar() {
                         <li className="sidebarListItem">
                             <Timeline/> 
                             Stats
+                        </li>
+                        <li className="sidebarListItem">
+                            <PeopleAlt/> 
+                            Utilisateur
                         </li>
                     </ul>
                 </div>
