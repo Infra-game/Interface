@@ -1,5 +1,6 @@
 import "./user.css"
 import { PermIdentity , CalendarToday , PhoneAndroid,  AlternateEmail , LocationOn , Publish  } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export default function User() {
     return (
@@ -8,9 +9,11 @@ export default function User() {
                 <h1 className="userTitle">
                     Edit User
                 </h1>
+                <Link  to ="/newUser">
                 <button className="userAddButton">
                     Create
                 </button>
+                </Link>
             </div>
             <div className="userContainer">
                 <div className="userShow">
