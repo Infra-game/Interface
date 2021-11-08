@@ -1,38 +1,42 @@
 import "./featuredInfo.css";
-import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
+//import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
+
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 export default function FeaturedInfo() {
   return (
     <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">Revanue</span>
+        <span className="featuredTitle">CPU</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,415</span>
-          <span className="featuredMoneyRate">
-            -11.4 <ArrowDownward  className="featuredIcon negative"/>
-          </span>
+          <span className="featuredMoney">70%</span>
+          <Stack className="circularProgress">
+            <CircularProgress variant="determinate" thickness={22} size={70} value={75} />
+          </Stack>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="featuredSub">Derniere mesure : </span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Sales</span>
+        <span className="featuredTitle">RAM</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$4,415</span>
-          <span className="featuredMoneyRate">
-            -1.4 <ArrowDownward className="featuredIcon negative"/>
-          </span>
+          <span className="featuredMoney">80%</span>
+          <Stack className="circularProgress">
+            <CircularProgress variant="determinate"  thickness={22} size={80}   value={75} />
+          </Stack>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="featuredSub">Derniere mesure :</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Cost</span>
+        <span className="featuredTitle">Stockage</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,225</span>
-          <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon"/>
-          </span>
+          <span className="featuredMoney">10%</span>
+          <Stack  className="circularProgress">
+            <CircularProgress variant="determinate" thickness={22} size={70} value={10} />
+          </Stack>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="featuredSub">Derniere mesure :</span>
       </div>
     </div>
   );

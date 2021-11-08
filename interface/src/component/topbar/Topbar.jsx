@@ -2,15 +2,18 @@ import React from 'react'
 import "./Topbar.css"
 //Multi Icons call from icons-material
 import {NotificationsNone, Language , Settings} from '@mui/icons-material';
-
+import {  Link  } from "react-router-dom";
 
 export default function Topbar() {
     return (
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topLeft"> 
-                <span className="logo"> LOGO </span>
+                <Link to="/">
+                <span className="logo"> INFRA GAME </span>
+                </Link>
                 </div>
+               
                 <div className="topRight">
                     <div className="topbarIconsContainer">
                         <NotificationsNone/>

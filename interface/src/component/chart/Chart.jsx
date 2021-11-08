@@ -3,6 +3,7 @@ import {
   LineChart,
   Line,
   XAxis,
+  YAxis ,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
@@ -19,6 +20,7 @@ export default function Chart({ title, data, dataKey, grid }) {
         <LineChart data={data}>
           <XAxis dataKey="name" stroke="#5550bd" />
           <Line type="monotone" dataKey={dataKey} stroke="#5550bd" />
+          <YAxis domain={[0, 100]} />
           <Tooltip />
           {grid && <CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5" />}
         </LineChart>

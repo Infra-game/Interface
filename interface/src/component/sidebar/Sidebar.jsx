@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey } from '@mui/icons-material';
-
+import {  Link  } from "react-router-dom";
 
 export default function Sidebar() {
     return (
@@ -11,7 +11,9 @@ export default function Sidebar() {
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
                             <LineStyle /> 
+                            <Link to="/" >
                             Acceuil 
+                            </Link>
                         </li>
                         <li className="sidebarListItem">
                             <Monitor/> 
@@ -23,7 +25,9 @@ export default function Sidebar() {
                         </li>
                         <li className="sidebarListItem">
                             <PeopleAlt/> 
+                            <Link to="/users">
                             Utilisateur
+                            </Link>
                         </li>
                     </ul>
                 </div>
