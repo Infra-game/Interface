@@ -5,6 +5,9 @@ import Home from './pages/home/Home';
 import UserList from "./pages/userList/UserList";
 import User from './pages/User/User';
 import NewUser from './pages/newUser/NewUser';
+import ProductList from './pages/productList/ProductList';
+import Product from './pages/product/Product';
+import NewProduct from './pages/newProduct/NewProduct';
 
 
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
@@ -30,6 +33,15 @@ function App() {
             <Route path="/newUser">
               <NewUser/>
             </Route>
+            <Route path="/products">
+              <ProductList /> 
+            </Route>
+            <Route path="/product/:productsId">
+               <Product />
+            </Route>
+            <Route path="/newproduct">
+            <NewProduct />
+          </Route>
           </Switch>
         </div>
       </Router>
