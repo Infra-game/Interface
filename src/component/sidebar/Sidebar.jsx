@@ -9,12 +9,12 @@ export default function Sidebar() {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle"> Dashboard </h3>
                     <ul className="sidebarList">
-                        <li className="sidebarListItem">
-                            <LineStyle /> 
-                            <Link to="/" >
-                            Acceuil 
-                            </Link>
-                        </li>
+                        <Link to="/" >
+                            <li className="sidebarListItem">
+                                <LineStyle /> 
+                                Acceuil 
+                            </li>
+                        </Link>
                         <li className="sidebarListItem">
                             <Monitor/> 
                             Monitoring
@@ -23,12 +23,12 @@ export default function Sidebar() {
                             <Timeline/> 
                             Stats
                         </li>
-                        <li className="sidebarListItem">
-                            <PeopleAlt/> 
-                            <Link to="/users">
-                            Utilisateur
-                            </Link>
-                        </li>
+                        <Link to="/users">
+                            <li className="sidebarListItem">
+                                <PeopleAlt/> 
+                                Utilisateur
+                            </li>
+                        </Link>
                     </ul>
                 </div>
 
