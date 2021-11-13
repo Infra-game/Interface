@@ -1,3 +1,6 @@
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 module.exports = (app,db) => {
     app.get('/users', (req, res) => {
         db.getConnection((err, connection) => {
@@ -23,13 +26,20 @@ module.exports = (app,db) => {
                 password : req.body.password,
             };
 
-            connection.query('INSERT INTO users SET ?', params, (err) => {
-                connection.release()
-
+            bcrypt.hash(params.password, saltRounds, (err, hash) => {
                 if(!err) {
-                    res.json({error: false, message:`L'utilisateur ${params.username} a été ajouté.`});
+                    params.password = hash;
+                    connection.query('INSERT INTO users SET ?', params, (err) => {
+                        connection.release()
+
+                        if(!err) {
+                            res.json({error: false, message:`L'utilisateur ${params.username} a été ajouté.`});
+                        } else {
+                            res.json({error : true, message: "L'utilisateur n'a pas pu être ajouté."});
+                            console.log(err);
+                        }
+                    })
                 } else {
-                    res.json({error : true, message: "L'utilisateur n'a pas pu être ajouté."});
                     console.log(err);
                 }
             })
@@ -61,6 +71,29 @@ module.exports = (app,db) => {
                     })
                 } else {
                     res.json({error : true, message : `L'utilisateur ${[req.params.id]} n'a pas pu être supprimé.`})
+                    console.log(err);
+                }
+            })
+        })
+    })
+
+    app.put('/users/:id', (req, res) => {
+        db.getConnection((err, connection) => {
+            if(err) throw err;
+
+            const params = {
+                email : req.body.email,
+                username : req.body.username,
+                password : req.body.password,
+            };
+
+            connection.query('UPDATE users SET ? WHERE id = ?', [params,req.params.id], (err,result) => {
+                connection.release()
+
+                if(!err) {
+                    res.json({error : false, message : `L'utilisateur ${params.username} a été modifié.`});
+                } else {
+                    res.json({error : true, message : `L'utilisateur ${params.username} n'a pas été modifié.`})
                     console.log(err);
                 }
             })

@@ -32,8 +32,8 @@ app.use(session({
     }
 }));
 
+require("./connexion")(app,db);
 require("./tables/users")(app,db);
-
 
 app.listen(port, () => {
   console.log(`Running on port ${port}`);
