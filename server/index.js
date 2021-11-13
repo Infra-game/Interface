@@ -38,3 +38,7 @@ require("./tables/users")(app,db);
 app.listen(port, () => {
   console.log(`Running on port ${port}`);
 });
+
+app.get("/",(req, res) =>{
+    console.log("ok")
+});
