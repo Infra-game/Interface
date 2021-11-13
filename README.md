@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Message pour l'équipe
 
 Pour respecter les meilleurs pratiques en termes de devellopement, seul les chefs de projet (Pour le moment) on des droits en écriture. 
