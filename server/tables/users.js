@@ -21,6 +21,9 @@ module.exports = (app,db) => {
                 email : req.body.email,
                 username : req.body.username,
                 password : req.body.password,
+                fullName : req.body.fullName,
+                phone : req.body.phone,
+                addresse : req.body.password,
             };
 
             connection.query('INSERT INTO users SET ?', params, (err) => {
