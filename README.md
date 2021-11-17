@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Message pour l'équipe
 
 Pour respecter les meilleurs pratiques en termes de devellopement, seul les chefs de projet (Pour le moment) on des droits en écriture. 
@@ -50,3 +50,4 @@ Voici un schéma explicatif
 ![image](https://user-images.githubusercontent.com/66829997/137392913-d30ec40e-9011-4349-9ba0-334b95af5d13.png)
 
 # Projet 
+

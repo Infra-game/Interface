@@ -1,3 +1,4 @@
+
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const authenticateJWT = require("../authenticateJWT")
@@ -19,6 +20,7 @@ module.exports = (app,db) => {
         } else {
             res.json({error : true, message : "Identifiants administrateurs requis."})
         }
+
     })
 
     app.post("/users/add", (req,res) => {
@@ -32,6 +34,7 @@ module.exports = (app,db) => {
                 fullName : req.body.fullName,
                 role : req.body.role
             };
+
 
             bcrypt.hash(params.password, saltRounds, (err, hash) => {
                 if(!err) {
@@ -47,6 +50,7 @@ module.exports = (app,db) => {
                         }
                     })
                 } else {
+
                     console.log(err);
                 }
             })
@@ -114,5 +118,6 @@ module.exports = (app,db) => {
         } else {
             res.json({error : true, message : "Identifiants administrateurs requis."})
         }
+
     })
 }
