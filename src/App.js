@@ -40,8 +40,8 @@ function App() {
                <Product />
             </Route>
             <Route path="/newproduct">
-            <NewProduct />
-          </Route>
+              <NewProduct />
+            </Route>
           </Switch>
         </div>
       </Router>
