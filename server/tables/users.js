@@ -39,7 +39,6 @@ module.exports = (app,db) => {
     })
 
     app.delete('/users/:id', (req, res) => {
-        console.log("here");
         db.getConnection((err, connection) => {
             if(err) throw err;
 
