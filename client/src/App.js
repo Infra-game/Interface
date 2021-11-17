@@ -7,22 +7,23 @@ function App() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [id, setID] = useState("");
   const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [logEmail, setLogEmail] = useState("");
   const [logUsername, setLogUsername] = useState("");
   const [logPassword, setLogPassword] = useState("");
   const [message, setMessage] = useState("");
 
   const addUser = () => {
-      axios.post("http://localhost:5000/users/add",{email,username,password})
+      axios.post("http://localhost:5000/users/add",{email,username,password,fullName,role})
       .then((res) => console.log(res.data.message));
   }
 
   const deleteUser = (id) => {
       axios.delete("http://localhost:5000/users/"+id)
       .then((res) => {
-        console.log(res.data.message);
         setUsers(users.filter(element => element.id !== id));
       });
   }
@@ -40,6 +41,8 @@ function App() {
       setID("");
       setEmail("");
       setUsername("");
+      setFullName("");
+      setRole("");
       setPassword("");
     } else {
       setIsUpdating(true);
@@ -55,26 +58,45 @@ function App() {
     .post("http://localhost:5000/login", {
       email : logEmail,
       username : logUsername,
-      password : logPassword
+      password : logPassword,
     })
-    .then((res) => setMessage(res.data.message))
+    .then((res) => {
+      setMessage(res.data.message);
+      if(!res.data.error) {
+        localStorage.setItem("accessToken", res.data.accessToken);
+      }
+    })
   }
 
   useEffect(() => {
-      axios.get("http://localhost:5000/users")
-      .then((res) => setUsers(res.data))
+      axios.get("http://localhost:5000/users", {headers : {
+        authorization : localStorage.getItem("accessToken")
+      }})
+      .then((res) => {
+        if(!res.data.error){
+          if(JSON.stringify(users)!==JSON.stringify(res.data)) {
+            setUsers(res.data);
+          }
+        }
+      })
   },[users])
 
   return (
     <div className="App">
         <div className="register">
           <h1>Register</h1>
+          <label htmlFor="fullname">Nom complet :</label>
+          <input type="text" id="fullname" value={fullName} onChange={(e) => setFullName(e.target.value)}/>
           <label htmlFor="email">Email :</label>
           <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
           <label htmlFor="username">Username :</label>
           <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
           <label htmlFor="password">Password :</label>
           <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <label htmlFor="admin">Admin</label>
+          <input type="radio" name="memberType" id="admin" value={role} onChange={(e) => setRole("admin")} />
+          <label htmlFor="user">User</label>
+          <input type="radio" name="memberType" id="user" onChange={(e) => setRole("user")} />
           <button type="button" onClick={() => isUpdating ? updateUser() : addUser()}>{isUpdating ? "Modifier" : "S'inscrire"}</button>
         </div>
 
@@ -86,15 +108,15 @@ function App() {
           <input type="text" id="log-username" value={logUsername} onChange={(e) => setLogUsername(e.target.value)}/>
           <label htmlFor="password">Password :</label>
           <input type="password" id="log-password" value={logPassword} onChange={(e) => setLogPassword(e.target.value)}/>
-          <button type="button" onClick={() => login()}>{isUpdating ? "Modifier" : "S'inscrire"}</button>
+          <button type="button" onClick={() => login()}>Se connecter</button>
         </div>
 
         <div className="listusers">
           <h1>List users</h1>
-          {users && users.map((user,index) => {
+          {users.length>0 && users.map((user,index) => {
               return (
                 <div key={index}>
-                  <p>Email : {user.email} Username : {user.username}</p>
+                  <p>ID : {user.id} Nom complet : {user.fullName} Email : {user.email} Username : {user.username} Role : {user.role}</p>
                   <button onClick={() => deleteUser(user.id)}>Supprimer</button>
                   <button onClick={() => handleUpdate(user)}>Modifier</button>
                 </div>
