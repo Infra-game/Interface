@@ -6,14 +6,14 @@ import { useState } from 'react';
 export default function NewUser() {
   
 const addUser = () => {
-  axios.post("http://localhost:5000/users/add",{email,username,password,fullName,phone,addresse})
+  axios.post("http://localhost:5000/users/add",{email,username,password,fullName,role})
 }
+  const [role, setRole] = useState(""); 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setfullName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [addresse, setAddresse] = useState("");
+ 
 
   
   return (
@@ -37,12 +37,16 @@ const addUser = () => {
           <input type="password" placeholder="password"  value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div className="newUserItem">
-          <label>Téléphone</label>
-          <input type="text" placeholder="+1 123 456 78" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-        <div className="newUserItem">
-          <label>Adresse</label>
-          <input type="text" placeholder="New York | USA" value={addresse} onChange={(e) =>  setAddresse(e.target.value)}/>
+          <label>Role</label>
+          <div className="newUserRole">
+            <input type="radio" name="role" id="admin"  onChange={e => setRole('Admin')}/>
+            <label for="admin">Admin 
+            </label>
+             <input type="radio" name="role" id="utilisateur" onChange={e => setRole('utilisateur')}/>
+            <label for="utilisateur">Utilisateur</label>
+            <input type="radio" name="role" id="joueur" onChange={e => setRole('joueur')} />
+            <label for="joueur">Joueur</label> 
+          </div>
         </div>
         <button className="newUserButton" onClick={() => addUser()}>Create</button>
       </form>

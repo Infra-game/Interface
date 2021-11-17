@@ -29,11 +29,11 @@
     border-radius: 5px;
   }
   
-  .newUserGender > input {
+  .newUserRole > input {
     margin-top: 15px;
   }
   
-  .newUserGender>label{
+  .newUserRole>label{
       margin: 10px;
       font-size: 18px;
       color: #555;
