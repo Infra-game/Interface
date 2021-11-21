@@ -1,25 +1,36 @@
 import "./newUser.css";
+import {  useState } from 'react';
+import axios from 'axios';
+
 
 export default function NewUser() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const addUser = () => {
+    axios.post("http://localhost:5000/users/add",{email,})
+    .then((res) => console.log(res.data.message));
+}
   return (
     <div className="newUser">
       <h1 className="newUserTitle">New User</h1>
       <form className="newUserForm">
         <div className="newUserItem">
           <label>Username</label>
-          <input type="text" placeholder="john" />
+          <input type="text" placeholder="john" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div className="newUserItem">
-          <label>Full Name</label>
-          <input type="text" placeholder="John Smith" />
+          <label> Nom prénom</label>
+          <input type="name" placeholder="John Smith" />
         </div>
         <div className="newUserItem">
           <label>Email</label>
-          <input type="email" placeholder="john@gmail.com" />
+          <input type="email" placeholder="john@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
         </div>
         <div className="newUserItem">
           <label>Password</label>
-          <input type="password" placeholder="password" />
+          <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
         <div className="newUserItem">
           <label>Phone</label>
@@ -47,7 +58,7 @@ export default function NewUser() {
             <option value="no">No</option>
           </select>
         </div>
-        <button className="newUserButton">Create</button>
+        <button className="newUserButton" onClick= {addUser} >Create</button>
       </form>
     </div>
   );
