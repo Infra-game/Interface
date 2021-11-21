@@ -21,6 +21,8 @@ module.exports = (app,db) => {
                 email : req.body.email,
                 username : req.body.username,
                 password : req.body.password,
+                fullName : req.body.fullName,
+                role : req.body.role
             };
 
             connection.query('INSERT INTO users SET ?', params, (err) => {
@@ -37,7 +39,6 @@ module.exports = (app,db) => {
     })
 
     app.delete('/users/:id', (req, res) => {
-        console.log("here");
         db.getConnection((err, connection) => {
             if(err) throw err;
 
