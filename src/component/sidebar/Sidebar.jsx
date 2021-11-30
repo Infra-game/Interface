@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey } from '@mui/icons-material';
+import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline } from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
 
 export default function Sidebar() {
@@ -42,10 +42,12 @@ export default function Sidebar() {
                         </li>
                     </Link>
 
+                    <Link to="/FTP">
                         <li className="sidebarListItem">
-                            <VpnKey/> 
-                            Accès ftp
+                            <SettingsApplications /> 
+                            Acces FTP
                         </li>
+                    </Link>
                         <li className="sidebarListItem">
                             <Memory/> 
                             Ressources
