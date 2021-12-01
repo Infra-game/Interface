@@ -8,9 +8,10 @@ import NewUser from './pages/newUser/NewUser';
 import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
-
+import Login from './pages/login/Login';
 
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+
 
 
 // doc router https://reactrouter.com/web/guides/quick-start 
@@ -41,6 +42,12 @@ function App() {
             </Route>
             <Route path="/newproduct">
             <NewProduct />
+          </Route>
+          {/* <Route path="/register">
+            <Register />
+          </Route> */}
+          <Route path="/login">
+            <Login />
           </Route>
           </Switch>
         </div>
