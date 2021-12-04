@@ -1,34 +1,15 @@
-.main_box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  /* Header */
-  .main_box--header{
-
-    background-image: url("D:/projetYnov/Interface/src/component/Login/LoginWallpaper.jpg");
-    margin-top: -200px;
-    margin-bottom: 50px;
-    width: 700px;
-    text-align: center;
-  }
-  .main_box--header h2{
-    color: #fff;
-    font-size: 32px;
-  }
-  .main_box--header p{
-    color: #ccc;
-    font-size: 20px;
-  }
-  
   /* Main */
-  .main_box--main{
+  .auth {
+    display: flex;
+    flex-direction: column;
     width: 500px;
-    height: auto;
-    position: relative;
+  }
+
+  .main_box {
+    height: fit-content;
+  }
+  
+  .main_box--main{
     border-radius: 7.5px;
     box-shadow: 0px 0px 25px rgba(0,0,0,.35);
   }

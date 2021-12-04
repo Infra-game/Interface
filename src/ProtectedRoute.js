@@ -9,14 +9,13 @@ const ProtectedRoute = ({component: Component , type ,...rest}) => {
     const isAuth = async () => {
         const res = await axios
         .get("http://localhost:5000/is"+type, {headers: {
-        "x-access-token" : localStorage.getItem("token")
+        authorization : localStorage.getItem("token")
         }})
         if(!res.data.auth) {
-            localStorage.removeItem("token");
-            axios.get("/logout");
             setError(res.data.message);
+        } else {
+            setAuth(res.data.auth);
         }
-        setAuth(res.data.auth);
     }
 
     useEffect(() => {
@@ -24,7 +23,7 @@ const ProtectedRoute = ({component: Component , type ,...rest}) => {
     }, [])
 
     if(auth==="") {
-        return null;
+        return <div>{error}</div>;
     } else {
         return (
             <Route {...rest} render={(props) => {

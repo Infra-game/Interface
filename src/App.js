@@ -11,9 +11,8 @@ import NewProduct from './pages/newProduct/NewProduct';
 import Login from './pages/login/Login';
 import NotFound from './pages/notFound/NotFound';
 
-
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
-import ProtectedRoute from './ProtectedRoute';
+//import ProtectedRoute from './ProtectedRoute';
 
 
 
@@ -27,11 +26,12 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/users" exact component={ UserList } />
+            <Route path="/login" exact component={Login} />
             <Route path="/user/:userId" exact component={ User } />
             <Route path="/newUser" exact component={ NewUser } />
             <Route path="/products" exact component={ ProductList } />
             <Route path="/product/:productsId" exact component={ Product } />
-            <ProtectedRoute type="Admin" path="/newproduct" exact component={ NewProduct } />
+            <Route path="/newproduct" exact component={ NewProduct } />
             <Route component={ NotFound } />
           </Switch>
         </div>
