@@ -8,9 +8,11 @@ import NewUser from './pages/newUser/NewUser';
 import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
+import NotFound from './pages/notFound/NotFound';
 
 
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import ProtectedRoute from './ProtectedRoute';
 
 
 // doc router https://reactrouter.com/web/guides/quick-start 
@@ -21,27 +23,14 @@ function App() {
         <div className="container">
           <Sidebar/>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/users">
-              <UserList /> 
-            </Route>
-            <Route path="/user/:userId">
-              <User /> 
-            </Route>
-            <Route path="/newUser">
-              <NewUser/>
-            </Route>
-            <Route path="/products">
-              <ProductList /> 
-            </Route>
-            <Route path="/product/:productsId">
-               <Product />
-            </Route>
-            <Route path="/newproduct">
-            <NewProduct />
-          </Route>
+            <Route path="/" exact component={Home} />
+            <Route path="/users" exact component={ UserList } />
+            <Route path="/user/:userId" exact component={ User } />
+            <Route path="/newUser" exact component={ NewUser } />
+            <Route path="/products" exact component={ ProductList } />
+            <Route path="/product/:productsId" exact component={ Product } />
+            <ProtectedRoute type="Admin" path="/newproduct" exact component={ NewProduct } />
+            <Route component={ NotFound } />
           </Switch>
         </div>
       </Router>

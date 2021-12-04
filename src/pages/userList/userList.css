@@ -7,13 +7,13 @@
     align-items: center;
   }
   
-  .userListImg {
+  /*userListImg {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
-  }
+  }*/
   
   .userListEdit{
       border: none;
@@ -28,4 +28,14 @@
   .userListDelete{
       color: red;
       cursor: pointer;
+  }
+  .userAddButton {
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
   }

@@ -1,5 +1,5 @@
 import "./user.css"
-import { PermIdentity , CalendarToday , PhoneAndroid,  AlternateEmail , LocationOn , Publish  } from "@mui/icons-material";
+import { PermIdentity , CalendarToday , PhoneAndroid,  AlternateEmail , LocationOn  } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function User() {
@@ -18,9 +18,6 @@ export default function User() {
             <div className="userContainer">
                 <div className="userShow">
                     <div className="userShowBottom">
-                        <img src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
-                        alt="" 
-                        className="userShowImg" />
                         <div className="userShowTopTitle">
                             <span className="userShowUsername">Anna Becker</span>
                             <span className="userShowUserTitle">Software Engineer</span>
@@ -97,17 +94,13 @@ export default function User() {
                         </div>
                         </div>
                         <div className="userUpdateRight">
+                      {/*  Reintegre l'icone publish si reintégration 
                         <div className="userUpdateUpload">
-                            <img
-                            className="userUpdateImg"
-                            src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                            alt=""
-                            />
                             <label htmlFor="file">
                             <Publish className="userUpdateIcon" />
                             </label>
                             <input type="file" id="file" style={{ display: "none" }} />
-                        </div>
+                        </div> */}  
                         <button className="userUpdateButton">Update</button>
                         </div>
                     </form>
