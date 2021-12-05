@@ -9,6 +9,9 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
 
 import "./Config.css"
 
@@ -285,10 +288,15 @@ export default function Config() {
                 </FormGroup>
                 </div>
                 </div>
-
-
-
+                <div className="send">
+                 <Stack direction="row" spacing={2}>
+                    <Button variant="contained" endIcon={<SendIcon />}>
+                        Envoyer
+                    </Button>
+                 </Stack>
+                </div>
             </div>
+            
         </div>
     )
 

@@ -1,0 +1,8 @@
+.bug {
+    flex : 4 ;
+}
+
+.typeBug{
+    display: flex;
+    flex-direction: row;
+}

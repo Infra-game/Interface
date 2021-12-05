@@ -10,6 +10,10 @@ import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
 import Config from './pages/Config/Config';
 
+//Erreur : is defined but never used no-unused--vars
+// eslint-disable-next-line
+import  BugReport from './pages/bugReport/bugReport';
+
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
 
 
@@ -45,6 +49,9 @@ function App() {
           <Route path="/Config">
             <Config />
           </Route>
+            <Route path="/bugReport">
+              <BugReport />
+            </Route>
           </Switch>
         </div>
       </Router>
