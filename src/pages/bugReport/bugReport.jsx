@@ -37,10 +37,10 @@ export default function BugReport() {
         return (
         <div className="bug">
             <div className="typeBug">
-                <Box
+                <Box 
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& .MuiTextField-root': { m: 1, width: '50ch' },
                 }}
                 noValidate
                 autoComplete="off"
@@ -65,14 +65,15 @@ export default function BugReport() {
               
               <TextField id="motdMessage" label="Siganlement du bug " variant="outlined" />
               </div>
-
-                </Box>
-                <div className="send">
-                <Stack direction="row" spacing={2}>
+              <Stack >
                 <Button variant="contained" endIcon={<SendIcon />}>
                     Envoyer
                 </Button>
                 </Stack>
+
+                </Box>
+                <div className="send">
+                
                 </div>
             </div>
            
