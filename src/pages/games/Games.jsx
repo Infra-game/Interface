@@ -11,8 +11,9 @@ const Games = () => {
         .get(`http://localhost:5000/games/${gameName}/start`)
         .then((res) => {
             if(res.data.statusCode===201) {
-                setResponse(res.data.message);
+                setStartedGame(gameName);
             }
+            setResponse(res.data.message);
         })
     }
 
@@ -21,8 +22,9 @@ const Games = () => {
         .get(`http://localhost:5000/games/${gameName}/destroy`)
         .then((res) => {
             if(res.data.statusCode===201) {
-                setResponse(res.data.message);
+                setStartedGame("");
             }
+            setResponse(res.data.message);
         })
     }
     
@@ -43,6 +45,7 @@ const Games = () => {
                     <button onClick={() => destroyGame("teeworlds")}>Éteindre le serveur</button>
                 </li>
             </ul>
+            <h2>{response}</h2>
         </div>
     );
 };
