@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginControl from './LoginControle';
 import "./NavBarstyle.css";
 
 
