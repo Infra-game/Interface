@@ -12,6 +12,7 @@ import Login from './pages/login/Login';
 import NotFound from './pages/notFound/NotFound';
 
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import Games from './pages/games/Games';
 //import ProtectedRoute from './ProtectedRoute';
 
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/products" exact component={ ProductList } />
             <Route path="/product/:productsId" exact component={ Product } />
             <Route path="/newproduct" exact component={ NewProduct } />
+            <Route path="/games" exact component={ Games } />
             <Route component={ NotFound } />
           </Switch>
         </div>
