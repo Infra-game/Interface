@@ -35,10 +35,13 @@ export default function Sidebar() {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle"> Gestion du Serveur </h3>
                     <ul className="sidebarList">
+                    <Link to="/Config">
                         <li className="sidebarListItem">
                             <SettingsApplications /> 
                             Config
                         </li>
+                    </Link>
+
                         <li className="sidebarListItem">
                             <VpnKey/> 
                             Accès ftp
@@ -52,10 +55,13 @@ export default function Sidebar() {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Support </h3>
                     <ul className="sidebarList">
+                    <Link to="/bugReport">
                         <li className="sidebarListItem">
                             <BugReport /> 
                             Bug Report 
                         </li>
+                    </Link>
+
                         <li className="sidebarListItem">
                             <Help/> 
                             FAQ 
