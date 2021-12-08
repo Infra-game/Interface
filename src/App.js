@@ -14,8 +14,12 @@ import FTP from './pages/ftp/ftp';
 //Erreur : is defined but never used no-unused--vars
 // eslint-disable-next-line
 import  BugReport from './pages/bugReport/bugReport';
+import Login from './pages/login/Login';
+import NotFound from './pages/notFound/NotFound';
 
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+//import ProtectedRoute from './ProtectedRoute';
+
 
 
 // doc router https://reactrouter.com/web/guides/quick-start 
@@ -26,36 +30,17 @@ function App() {
         <div className="container">
           <Sidebar/>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/users">
-              <UserList /> 
-            </Route>
-            <Route path="/user/:userId">
-              <User /> 
-            </Route>
-            <Route path="/newUser">
-              <NewUser/>
-            </Route>
-            <Route path="/products">
-              <ProductList /> 
-            </Route>
-            <Route path="/FTP">
-              <FTP/>
-            </Route>
-            <Route path="/product/:productsId">
-               <Product />
-            </Route>
-            <Route path="/newproduct">
-            <NewProduct />
-          </Route>
-          <Route path="/Config">
-            <Config />
-          </Route>
-            <Route path="/bugReport">
-              <BugReport />
-            </Route>
+            <Route path="/" exact component={Home} />
+            <Route path="/users" exact component={ UserList } />
+            <Route path="/login" exact component={Login} />
+            <Route path="/user/:userId" exact component={ User } />
+            <Route path="/newUser" exact component={ NewUser } />
+            <Route path="/products" exact component={ ProductList } />
+            <Route path="/product/:productsId" exact component={ Product } />
+            <Route path="/config" exact component={ Config } />
+            <Route path="/ftp" exact component={ FTP } />
+            <Route path="/bugreport" exact component={ BugReport } />
+            <Route component={ NotFound } />
           </Switch>
         </div>
       </Router>
