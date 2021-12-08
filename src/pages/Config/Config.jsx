@@ -83,7 +83,7 @@ export default function Config({userRole}) {
     return (
         <div className="config">
             <Sidebar role={userRole}/>
-            <div className="config">
+            <div className="content">
                 <div className="configContainer">
                     <div className="subdomainContainer">
                         <div className="subdomain">

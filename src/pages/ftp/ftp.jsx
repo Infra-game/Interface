@@ -54,8 +54,7 @@ export default function FTP({userRole}) {
    return ( 
     <div className="FTP">
         <Sidebar role={userRole}/>
-        <div className="config">
-
+        <div className="content">
             <div className="FTPContainer">
                 <div className="subdomainContainer">
                     <div className="subdomain">

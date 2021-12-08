@@ -38,7 +38,7 @@ export default function BugReport({userRole}) {
         return (
         <div className="bug">
             <Sidebar role={userRole}/>
-            <div className="config">
+            <div className="content">
                 <div className="typeBug">
                     <Box 
                     component="form"
