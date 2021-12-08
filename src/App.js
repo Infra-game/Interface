@@ -9,6 +9,7 @@ import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
 import Config from './pages/Config/Config';
+import FTP from './pages/ftp/ftp';
 
 //Erreur : is defined but never used no-unused--vars
 // eslint-disable-next-line
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/products">
               <ProductList /> 
+            </Route>
+            <Route path="/FTP">
+              <FTP/>
             </Route>
             <Route path="/product/:productsId">
                <Product />
