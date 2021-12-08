@@ -18,7 +18,9 @@ export default function UserList() {
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
-        axios.get("http://localhost:5000/users")
+        axios.get("http://localhost:5000/users", {headers : {
+            authorization : localStorage.getItem("token")
+        }})
         .then((res) => {
             console.log(res.data)
             if(JSON.stringify(users)!==JSON.stringify(res.data)){
