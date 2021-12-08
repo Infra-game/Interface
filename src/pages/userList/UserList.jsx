@@ -5,6 +5,7 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import Sidebar from "../../component/sidebar/Sidebar";
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -12,13 +13,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { tokenHeaders } from "../../component/Utils";
 
 
-export default function UserList() {
+export default function UserList({userRole}) {
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
-        axios.get("http://localhost:5000/users")
+        axios.get("http://localhost:5000/users", tokenHeaders)
         .then((res) => {
             console.log(res.data)
             if(JSON.stringify(users)!==JSON.stringify(res.data)){
@@ -40,9 +42,13 @@ export default function UserList() {
       };
 
         const handleDelete = () => {
-        axios.delete(`http://localhost:5000/users/${selected}`)
+        axios.delete(`http://localhost:5000/users/${selected}`, tokenHeaders)
         .then((res) => {
-          setUsers(users.filter(element => element.id !== selected ));
+            if(!res.data.error) {
+                setUsers(users.filter(element => element.id !== selected ));
+            } else {
+                console.log(res.data.message);
+            }
         });
       };
     // doc https://mui.com/components/tables/#main-content
@@ -111,26 +117,32 @@ export default function UserList() {
         },
     ];
 
-    return (
-        
-        <div className="userList">
-            <Link  to ="/newUser">
-                <button className="userAddButton">
-                    Create
-                </button>
-                </Link>
-            <div style={{ height: 700, width: '100%' }}>
-                {users.length>0 && 
-                <DataGrid
-                    rows={users}
-                    enableSelectionOnClick
-                    columns={columns}
-                    pageSize={15}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                    
-                />}
+    if(userRole.toLowerCase()==="admin") {
+        return (
+            <div className="userList">
+                <Sidebar role={userRole} />
+                <div className="content">
+                    <Link  to ="/newUser">
+                        <button className="userAddButton">
+                            Create
+                        </button>
+                        </Link>
+                    <div style={{ height: 700, width: '100%' }}>
+                        {users.length>0 && 
+                        <DataGrid
+                            rows={users}
+                            enableSelectionOnClick
+                            columns={columns}
+                            pageSize={15}
+                            rowsPerPageOptions={[10]}
+                            checkboxSelection
+                            
+                        />} 
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return <div className="error">Vous n'avez pas les droits requis.</div>
+    }
 }

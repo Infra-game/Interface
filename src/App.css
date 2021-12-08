@@ -1,3 +1,7 @@
-.container{
+.container>div {
     display: flex;
+}
+
+.container>div .content{
+    flex : 6 1;
 }

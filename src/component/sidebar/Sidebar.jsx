@@ -1,8 +1,8 @@
 import "./Sidebar.css";
-import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey } from '@mui/icons-material';
+import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey, VideogameAsset } from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({role}) {
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
@@ -23,10 +23,16 @@ export default function Sidebar() {
                             <Timeline/> 
                             Stats
                         </li>
-                        <Link to="/users">
+                        {role==="admin" && <Link to="/users">
                             <li className="sidebarListItem">
                                 <PeopleAlt/> 
                                 Utilisateur
+                            </li>
+                        </Link>}
+                        <Link to="/games">
+                            <li className="sidebarListItem">
+                                <VideogameAsset/> 
+                                Jeux
                             </li>
                         </Link>
                     </ul>
