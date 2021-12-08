@@ -1,9 +1,10 @@
 import "./FTP.css";
-import React, { useRef } from "react";
+import React  from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { useForm } from 'react-hook-form'
+//Inutilisé 
+//import { useForm } from 'react-hook-form'
 
 const acces = [
     {
