@@ -4,6 +4,16 @@ import Home from './pages/home/Home';
 import UserList from "./pages/userList/UserList";
 import User from './pages/User/User';
 import NewUser from './pages/newUser/NewUser';
+//non utilisé
+//import ProductList from './pages/productList/ProductList';
+//import Product from './pages/product/Product';
+//import NewProduct from './pages/newProduct/NewProduct';
+import Config from './pages/Config/Config';
+import FTP from './pages/ftp/ftp';
+
+//Erreur : is defined but never used no-unused--vars
+// eslint-disable-next-line
+import  BugReport from './pages/bugReport/bugReport';
 import Login from './pages/login/Login';
 import NotFound from './pages/notFound/NotFound';
 
@@ -25,6 +35,9 @@ function App() {
             <ProtectedRoute path="/user/:userId" exact component={ User } />
             <ProtectedRoute path="/newUser" exact component={ NewUser } />
             <ProtectedRoute path="/games" exact component={ Games } />
+            <ProtectedRoute path="/config" exact component={ Config } />
+            <ProtectedRoute path="/ftp" exact component={ FTP } />
+            <ProtectedRoute path="/bugreport" exact component={ BugReport } />
             <Route path="/login" exact component={Login} />
             <Route component={ NotFound } />
           </Switch>

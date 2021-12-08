@@ -41,14 +41,19 @@ export default function Sidebar({role}) {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle"> Gestion du Serveur </h3>
                     <ul className="sidebarList">
+                    <Link to="/Config">
                         <li className="sidebarListItem">
                             <SettingsApplications /> 
                             Config
                         </li>
+                    </Link>
+
+                    <Link to="/FTP">
                         <li className="sidebarListItem">
-                            <VpnKey/> 
-                            Accès ftp
+                            <SettingsApplications /> 
+                            Acces FTP
                         </li>
+                    </Link>
                         <li className="sidebarListItem">
                             <Memory/> 
                             Ressources
@@ -58,10 +63,13 @@ export default function Sidebar({role}) {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Support </h3>
                     <ul className="sidebarList">
+                    <Link to="/bugReport">
                         <li className="sidebarListItem">
                             <BugReport /> 
                             Bug Report 
                         </li>
+                    </Link>
+
                         <li className="sidebarListItem">
                             <Help/> 
                             FAQ 
