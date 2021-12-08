@@ -5,6 +5,7 @@ const Signup = ({changePage}) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setfullName] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState("");
 
@@ -27,9 +28,11 @@ const Signup = ({changePage}) => {
     if(checkErrors()===true) {
       axios
       .post("http://localhost:5000/register", {
-        email : this.state.email,
-        username : this.state.username,
-        password : this.state.password1,
+        email,
+        username,
+        password,
+        fullName,
+
         role : "user"
       })
       .then((res) => {
@@ -60,6 +63,14 @@ const Signup = ({changePage}) => {
           onChange={(e) => setUsername(e.target.value)}
           className="form-control"
           placeholder="Nom d'utilisateur"
+          autoComplete="false"
+        />
+                <input
+          type="text"
+          value={fullName}
+          onChange={(e) => setfullName(e.target.value)}
+          className="form-control"
+          placeholder="Nom complet"
           autoComplete="false"
         />
         <input
