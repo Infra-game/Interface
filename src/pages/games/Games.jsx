@@ -6,12 +6,23 @@ import "./Games.css"
 const Games = ({userRole}) => {
     const [response, setResponse] = useState("");
 
+    const statusGame= (gameName)  => {
+        axios 
+        .get(`http://localhost:5000/games/${gameName}/status`)
+        .then((res) => {
+            setResponse(res.data) ; 
+        })
+    }
+
     const startGame = (gameName) => {
         axios
         .get(`http://localhost:5000/games/${gameName}/start`)
         .then((res) => {
             setResponse(res.data.message);
         })
+        setTimeout(function() {
+            statusGame(gameName) ;
+          }, 60000);
     }
 
     const destroyGame = (gameName) => {
@@ -20,7 +31,11 @@ const Games = ({userRole}) => {
         .then((res) => {
             setResponse(res.data.message);
         })
+        setTimeout(function() {
+            statusGame(gameName) ;
+          }, 60000);
     }
+
     
     return (
         <div className="games">
@@ -33,6 +48,7 @@ const Games = ({userRole}) => {
                         <h2>Minecraft</h2>
                         <button onClick={() => startGame("minecraft")}>Lancer le serveur</button>
                         <button onClick={() => destroyGame("minecraft")}>Éteindre le serveur</button>
+                        
                     </li>
                     <li className="game">
                         <img src="https://www.teeworlds.com/images/splashtee.png" alt="Icône teeworlds" />
