@@ -1,15 +1,16 @@
-import axios from 'axios';
+import axios from './axiosConfig';
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect } from "react-router-dom";
+import Dashboard from './pages/Dashboard';
 
-const ProtectedRoute = ({component: Component ,...rest}) => {
+const ProtectedRoute = ({component: Component, pageName,...rest}) => {
     const [auth, setAuth] = useState("");
     const [role, setRole] = useState("");
     const [error, setError] = useState("");
 
     const isAuth = async () => {
         const res = await axios
-        .get("http://localhost:5000/isAuth", {headers: {
+        .get("/isAuth", {headers: {
         authorization : localStorage.getItem("token")
         }})
         if(res.data.error) {
@@ -22,7 +23,8 @@ const ProtectedRoute = ({component: Component ,...rest}) => {
     }
 
     useEffect(() => {
-        isAuth();
+        //isAuth();
+        setAuth(true);
     }, [])
 
     if(auth==="") {
@@ -31,7 +33,7 @@ const ProtectedRoute = ({component: Component ,...rest}) => {
         return (
             <Route {...rest} render={(props) => {
                 if(auth===true) {
-                    return <Component userRole={role} {...props}/>
+                    return <Dashboard userRole={role} Page={Component} pageName={pageName} {...props}/>
                 } else {
                     return (
                         <Redirect to={{pathname: "/login"}} />

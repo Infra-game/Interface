@@ -1,28 +1,24 @@
-import "./userList.css";
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid'
 import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from '../axiosConfig';
 import { useState, useEffect } from "react";
-import Sidebar from "../../component/sidebar/Sidebar";
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { tokenHeaders } from "../../component/Utils";
+import { tokenHeaders } from "../Utils";
 
 
-export default function UserList({userRole}) {
+export default function UserList() {
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
-        axios.get("http://localhost:5000/users", tokenHeaders)
+        axios.get("/users", tokenHeaders)
         .then((res) => {
-            console.log(res.data)
             if(JSON.stringify(users)!==JSON.stringify(res.data)){
                 setUsers(res.data) ; 
             }
@@ -42,7 +38,7 @@ export default function UserList({userRole}) {
       };
 
         const handleDelete = () => {
-        axios.delete(`http://localhost:5000/users/${selected}`, tokenHeaders)
+        axios.delete(`/users/${selected}`, tokenHeaders)
         .then((res) => {
             if(!res.data.error) {
                 setUsers(users.filter(element => element.id !== selected ));
@@ -117,32 +113,25 @@ export default function UserList({userRole}) {
         },
     ];
 
-    if(userRole.toLowerCase()==="admin") {
-        return (
-            <div className="userList">
-                <Sidebar role={userRole} />
-                <div className="content">
-                    <Link  to ="/newUser">
-                        <button className="userAddButton">
-                            Create
-                        </button>
-                        </Link>
-                    <div style={{ height: 700, width: '100%' }}>
-                        {users.length>0 && 
-                        <DataGrid
-                            rows={users}
-                            enableSelectionOnClick
-                            columns={columns}
-                            pageSize={15}
-                            rowsPerPageOptions={[10]}
-                            checkboxSelection
-                            
-                        />} 
-                    </div>
-                </div>
+    return (
+        <div className="userList">
+            <Link  to ="/newUser">
+                <button className="userAddButton">
+                    Create
+                </button>
+                </Link>
+            <div style={{ height: 700, width: '100%' }}>
+                {users.length>0 && 
+                <DataGrid
+                    rows={users}
+                    enableSelectionOnClick
+                    columns={columns}
+                    pageSize={15}
+                    rowsPerPageOptions={[10]}
+                    checkboxSelection
+                    
+                />} 
             </div>
-        )
-    } else {
-        return <div className="error">Vous n'avez pas les droits requis.</div>
-    }
+        </div>
+    )
 }

@@ -1,14 +1,14 @@
 import "./newUser.css";
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import { useState } from 'react';
-import { tokenHeaders } from "../../component/Utils";
-import Sidebar from "../../component/sidebar/Sidebar";
+import { tokenHeaders } from "../../Utils";
+import Sidebar from "../../component/Sidebar";
 
 
 export default function NewUser({userRole}) {
   
 const addUser = () => {
-  axios.post("http://localhost:5000/users/add",{email,username,password,fullName,role}, tokenHeaders)
+  axios.post("/users/add",{email,username,password,fullName,role}, tokenHeaders)
 }
   const [role, setRole] = useState(""); 
   const [email, setEmail] = useState("");
