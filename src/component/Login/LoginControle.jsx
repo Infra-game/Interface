@@ -12,7 +12,7 @@ const LoginControl = ({changePage}) => {
   const handleSubmit = () => {
     axios
     .post("http://localhost:5000/login", {email, username, password})
-    .then((res) => {
+    .then((res) => { //try catch , on ne recup pas les et   401 
         if(!res.data.error) {
           localStorage.setItem("token", res.data.accessToken);
           setIsAuth(true);

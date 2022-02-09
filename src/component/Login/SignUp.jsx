@@ -8,8 +8,8 @@ const Signup = ({changePage}) => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState("");
 
-  const checkErrors = () => {
-    let response = true;
+  const checkErrors = () => { 
+    let response = true; // changement de type ! verifier la logique , 
     if(!email) {
       response = "Un email doit être défini.";
     } else if(!username) {
@@ -24,7 +24,7 @@ const Signup = ({changePage}) => {
   }
 
   const handleSubmit = () => {
-    if(checkErrors()===true) {
+    if(checkErrors()===true) { // pas utiliser de bool ou utiliser null or string 
       axios
       .post("http://localhost:5000/register", {
         email,
@@ -40,7 +40,7 @@ const Signup = ({changePage}) => {
         }
       })
     } else {
-      console.log(checkErrors());
+      console.log(checkErrors()); //appeler 2 fois 
     }
   }
 

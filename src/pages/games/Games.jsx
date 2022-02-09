@@ -6,7 +6,7 @@ import "./Games.css"
 const Games = ({userRole}) => {
     const [response, setResponse] = useState("");
 
-    const statusGame= (gameName)  => {
+    const statusGame= (gameName)  => { //Crée un composant pour gerer les appel d'api 
         axios 
         .get(`http://localhost:5000/games/${gameName}/status`)
         .then((res) => {
@@ -19,10 +19,11 @@ const Games = ({userRole}) => {
         .get(`http://localhost:5000/games/${gameName}/start`)
         .then((res) => {
             setResponse(res.data.message);
+
         })
-        setTimeout(function() {
+        setTimeout(function() { //settimeout dans le .then et lancer le loader , 
             statusGame(gameName) ;
-          }, 60000);
+          }, 60000);// rajouter un loader pour donner le status 
     }
 
     const destroyGame = (gameName) => {
@@ -33,7 +34,7 @@ const Games = ({userRole}) => {
         })
         setTimeout(function() {
             statusGame(gameName) ;
-          }, 60000);
+          }, 60000); //same here 
     }
 
     
