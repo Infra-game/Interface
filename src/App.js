@@ -24,6 +24,10 @@ import ProtectedRoute from './ProtectedRoute';
 
 
 // doc router https://reactrouter.com/web/guides/quick-start 
+/**
+ * Protect routes to open other pages 
+ * @returns { Promise }
+ */
 function App() {
   return (
       <Router> 

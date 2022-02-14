@@ -4,6 +4,10 @@ import Chart from "../../component/chart/Chart";
 import {productData} from "../../dummyData"
 import { Publish } from "@mui/icons-material";
 
+/**
+ * Product page for existing products
+ * @returns { Promise }
+ */
 export default function Product() {
   return (
     <div className="product">

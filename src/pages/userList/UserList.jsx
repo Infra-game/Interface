@@ -1,6 +1,6 @@
 import "./userList.css";
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -16,9 +16,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { tokenHeaders } from "../../component/Utils";
 
 
+/**
+ * UserList page to show existing users 
+ * @param { string } userRole 
+ * @returns { Promise }
+ */
 export default function UserList({userRole}) {
     const [users, setUsers] = useState([]);
-    
+
     useEffect(() => {
         axios.get("http://localhost:5000/users", tokenHeaders)
         .then((res) => {

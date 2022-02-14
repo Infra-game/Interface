@@ -1,5 +1,9 @@
 import "./newProduct.css";
 
+/**
+ * New Product page for additional product
+ * @returns { Promise }
+ */
 export default function NewProduct() {
   return (
     <div className="newProduct">

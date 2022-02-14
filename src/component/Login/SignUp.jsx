@@ -1,13 +1,17 @@
 import axios from 'axios';
 import React, {  useState } from 'react'
 
+
 const Signup = ({changePage}) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState("");
-
+/**
+ * Check for errors on connection 
+ * @returns { Promise.resolve<string> } response
+ */
   const checkErrors = () => {
     let response = true;
     if(!email) {
@@ -22,7 +26,10 @@ const Signup = ({changePage}) => {
 
     return response;
   }
-
+  /**
+   * this will ask for information at connection and give "user" as role
+   * Then it will change on the landing page
+   */
   const handleSubmit = () => {
     if(checkErrors()===true) {
       axios
@@ -43,7 +50,11 @@ const Signup = ({changePage}) => {
       console.log(checkErrors());
     }
   }
-
+  /**
+   * HTML Form for register
+   * "e" is the object handler
+   * @returns {HTMLElement}
+   */
   return (
     <div className="main_box--main--signUp">
       <input
@@ -76,6 +87,7 @@ const Signup = ({changePage}) => {
           className="form-control"
           placeholder="Mot de passe"
         />
+
       <button className="btn btn-success" onClick={() => handleSubmit()}>SIGN UP</button>
       <p
         onClick={() => changePage()}

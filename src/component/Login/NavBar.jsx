@@ -1,7 +1,10 @@
 import React from 'react';
 import "./NavBarstyle.css";
 
-
+/**
+ * Create Navigation bar for login 
+ * @returns { Promise }
+ */
 const Navbar = () => {
     return (
       <div className="main_box">

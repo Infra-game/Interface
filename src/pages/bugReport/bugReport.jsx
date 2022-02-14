@@ -12,6 +12,10 @@ import "./bugReport.css"
 import Sidebar from '../../component/sidebar/Sidebar';
 
 
+/**
+ * definition of the Bug constancy
+filling in the possible choices 
+ */
 const Bug = [
     {
         value: 'VIS',
@@ -27,6 +31,11 @@ const Bug = [
     },
 ];
 
+/**
+ * Bug report page 
+ * @param { string } userRole 
+ * @returns { Promise }
+ */
 export default function BugReport({userRole}) {
 
      const [BugR, setBug] = React.useState('VIS');

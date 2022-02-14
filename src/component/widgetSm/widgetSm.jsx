@@ -1,6 +1,11 @@
 import "./widgetSm.css"
 import { Visibility } from "@mui/icons-material"
 
+/**
+ * Widget for User information
+ * Wiget for server information
+ * @returns { Promise }
+ */
 export default function WidgetSm() {
     return (
         <div className="widgetSm">

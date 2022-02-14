@@ -5,6 +5,11 @@ import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
+/**
+ * ProductList page to show a list product with filters 
+ * @returns { Promise }
+ */
 export default function ProductList() {
   const [data, setData] = useState(productRows);
 

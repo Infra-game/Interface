@@ -16,6 +16,10 @@ import Stack from '@mui/material/Stack';
 import "./Config.css"
 import Sidebar from '../../component/sidebar/Sidebar';
 
+/**
+ * definition of the Langue consistency 
+ * filling in the possible choices 
+ */
 const langue = [
     {
         value: 'US',
@@ -35,7 +39,10 @@ const langue = [
     },
 ];
 
-
+/**
+ * definition of the differentLevel consistency 
+ * filling in the possible choices 
+ */
 const differentLevel = [
     {
         value: 'Hard',
@@ -50,6 +57,11 @@ const differentLevel = [
         label: 'Facile',
     },
 ];
+
+/**
+ * definition of the VideoGame consistency 
+ * filling in the possible choices 
+ */
 const videoGame = [
     {
         value: 'Mine',
@@ -65,6 +77,12 @@ const videoGame = [
     },
 ];
 
+
+/**
+ * Config page used to create server with parameters 
+ * @param { string } userRole 
+ * @returns { HTMLElement }
+ */
 export default function Config({userRole}) {
     const [language, setlanguage] = React.useState('FR');
     const [Level, setLevel] = React.useState('Hard');

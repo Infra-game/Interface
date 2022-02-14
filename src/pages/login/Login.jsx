@@ -4,6 +4,11 @@ import Navbar from "../../component/Login/NavBar";
 import Signup from "../../component/Login/SignUp";
 import "./Login.css";
 
+/**
+ * definition of the Login constancy
+filling in the possible choices 
+ * @returns { Promise }
+ */
 const Login = () => {
   const [page, setPage] = useState("login");
 

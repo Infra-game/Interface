@@ -6,6 +6,12 @@ import WidgetSm from "../../component/widgetSm/widgetSm"
 import WidgetLg from "../../component/widgetLg/widgetLg"
 import Sidebar from "../../component/sidebar/Sidebar"
 
+/**
+ * Home page 
+ * @param { string } userRole 
+ * @returns { HTMLElement }
+ */
+
 export default function Home({userRole}){
     return(
         <div className="home">

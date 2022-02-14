@@ -1,7 +1,11 @@
 import "./Sidebar.css";
 import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey, VideogameAsset } from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
-
+/**
+ * Create side bar with access to other pages 
+ * @param { function } Sidebar {role}
+ * @returns { HTMLElement }
+ */
 export default function Sidebar({role}) {
     return (
         <div className="sidebar">

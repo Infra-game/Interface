@@ -3,6 +3,14 @@ import React, { useState } from 'react';
 import Sidebar from "../../component/sidebar/Sidebar";
 import "./Games.css"
 
+/**
+ * definition of Games,statusGame, startGame, destroyGame consistencies
+ * filling in the possible choices 
+ * Game page 
+ * @param { string } userRole
+ * @param { string } gameName
+ * @returns 
+ */
 const Games = ({userRole}) => {
     const [response, setResponse] = useState("");
 

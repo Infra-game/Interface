@@ -4,6 +4,10 @@ import "./Topbar.css"
 import {NotificationsNone, Language , Settings} from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
 
+/**
+ * create top bar on the site 
+ * @returns { HTMLElement }
+ */
 export default function Topbar() {
     return (
         <div className="topbar">

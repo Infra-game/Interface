@@ -9,7 +9,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-//Usage de la librairie Recharts pour crée des graphs
+/**
+ * Use of the Recharts library to create graphs
+ * @param { string } title
+ * @param { string } data
+ * @param { string } dataKey
+ * @param { string } grid
+ * @returns { HTMLElement }
+ */
 
 export default function Chart({ title, data, dataKey, grid }) {
 

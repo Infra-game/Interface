@@ -2,11 +2,21 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect } from "react-router-dom";
 
+/**
+ * definition of the ProtectedRoute, setAuth, setRole, setError constancies
+ * filling in the possible choices 
+ * @param { string } component
+ * @returns { Promise }
+ */
 const ProtectedRoute = ({component: Component ,...rest}) => {
     const [auth, setAuth] = useState("");
     const [role, setRole] = useState("");
     const [error, setError] = useState("");
 
+    /**
+     * definition of the isAuth constancy
+     * filling in the possible choices 
+     */
     const isAuth = async () => {
         const res = await axios
         .get("http://localhost:5000/isAuth", {headers: {

@@ -5,6 +5,12 @@ import { tokenHeaders } from "../../component/Utils";
 import Sidebar from "../../component/sidebar/Sidebar";
 
 
+/**
+ * definition of the addUser constancy
+ * filling in the possible choices 
+ * @param { string } userRole
+ * @returns { Promise }
+ */
 export default function NewUser({userRole}) {
   
 const addUser = () => {

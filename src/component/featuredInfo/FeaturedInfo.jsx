@@ -4,7 +4,10 @@ import "./featuredInfo.css";
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
+/**
+ * Return informations from game servers
+ * @returns { Promise }
+ */
 export default function FeaturedInfo() {
   return (
     <div className="featured">

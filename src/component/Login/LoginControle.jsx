@@ -9,6 +9,12 @@ const LoginControl = ({changePage}) => {
   const [error, setError] = useState("");
   const [isAuth, setIsAuth] = useState(false);
 
+  /**
+   * http post request, login of a user 
+   * @param { string } email
+   * @param { string } username
+   * @param { string } password
+   */
   const handleSubmit = () => {
     axios
     .post("http://localhost:5000/login", {email, username, password})
@@ -21,7 +27,10 @@ const LoginControl = ({changePage}) => {
         }
     })
   };
-
+  /**
+   * return render HTML
+   * "e" is the object handler
+   */
   if(isAuth) {
     return <Redirect to={{pathname:"/"}}/>;
   } else {

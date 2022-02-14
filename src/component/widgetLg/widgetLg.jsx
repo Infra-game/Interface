@@ -1,5 +1,10 @@
 import "./widgetLg.css"
 
+/**
+ * widget on the main page
+ * @returns { Promise }
+ * @returns { <HTMLElement }
+ */
 export default function WidgetLg() {
     const Button =({type}) => {
         return <button className={"widgetLgButton " + type}>{type}</button>

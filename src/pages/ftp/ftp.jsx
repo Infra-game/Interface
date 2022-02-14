@@ -7,6 +7,11 @@ import Sidebar from "../../component/sidebar/Sidebar";
 //Inutilisé 
 //import { useForm } from 'react-hook-form'
 
+
+/**
+ * definition of the acces consistency 
+ * filling in the possible choices 
+ */
 const acces = [
     {
         value: 'Total',
@@ -18,7 +23,11 @@ const acces = [
     },
 ];
 
-
+/**
+ * FTP Page for ftp access
+ * @param {string} userRole
+ * @returns { HTMLElement }
+ */
 
 export default function FTP({userRole}) {
     
