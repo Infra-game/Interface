@@ -36,17 +36,47 @@
                     background-color: $darkmode_bg;
                 }
             }
+
+            &.config-widget {
+            }
         }
     }
 
-    .page-content {
+    .content {
         display: flex;
         height: 100%;
 
-        &>*:not(.sidebar) {
+        .page-content {
             width: 100%;
+            position: relative;
             overflow-y: scroll;
-            overflow-x: scroll;
+
+            .banner {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                background-color: $bleu_2;
+                width: 100%;
+                z-index: 0;
+                color: white;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                height: 200px;
+                background-image: url("../../assets/arches.png");
+
+                h1, h2 {
+                    padding-left: 15px;
+                    z-index: 2;
+                }
+            }
+
+            .page {
+                width: 100%;
+                position: absolute;
+                top: 150px;
+                z-index: 2;
+            }
         }
+
     }
 }

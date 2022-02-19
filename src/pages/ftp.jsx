@@ -41,7 +41,7 @@ export default function FTP({userRole}) {
       */
 
    return ( 
-        <div className="FTP">
+        <div className="page FTP">
             <div className="FTPContainer">
                 <div className="subdomainContainer">
                     <div className="subdomain">
