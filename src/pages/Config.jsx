@@ -12,6 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
+import { ConfigWidget } from '../component/Widgets'
 
 const langue = [
     {
@@ -78,38 +79,30 @@ export default function Config({userRole}) {
     };
 
     return (
-        <div className="config">
-            <div className="configContainer">
-                <div className="subdomainContainer">
-                    <div className="subdomain">
-                        <h3>
-                            Choix du Nom de Sous Domaine
-                        </h3>
+        <div className="page config">
+            <ConfigWidget size="80">
+                <div className="configContainer">
+                    <div className="subdomainContainer">
+                        <h3>Choix du Nom de Sous Domaine</h3>
+                        <Box
+                            component="form"
+                            sx={{
+                                '& > :not(style)': { m: 1, width: '25ch' },
+                            }}
+                            noValidate
+                            autoComplete="off"
+                        >
+                            <TextField id="configSubname" label="Sous Domaine" variant="outlined" />
+                            <TextField
+                                disabled
+                                id="outlined-disabled"
+                                label="Domaine"
+                                defaultValue="infragame.com"
+                            />
+                        </Box>
                     </div>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField id="configSubname" label="Sous Domaine" variant="outlined" />
-                        <TextField
-                            disabled
-                            id="outlined-disabled"
-                            label="Domaine"
-                            defaultValue="infragame.com"
-                        />
-                    </Box>
-                </div>
-                <div className="motdContainer">
-                    <div>
-                        <h3>
-                            MOTD
-                        </h3>
-                    </div>
-                    <div>
+                    <div className="motdContainer">
+                        <h3>MOTD</h3>
                         <Box
                             component="form"
                             sx={{
@@ -120,17 +113,9 @@ export default function Config({userRole}) {
                         >
                             <TextField id="motdMessage" label="MOTD" variant="outlined" />
                         </Box>
-
                     </div>
-                </div>
-                <div className="choiceContainer">
-                <div className="languageContainer">
-                    <div>
-                        <h3>
-                            Langue
-                        </h3>
-                    </div>
-                    <div>
+                    <div className="languageContainer">
+                        <h3>Langue</h3>
                         <Box
                             component="form"
                             sx={{
@@ -138,33 +123,26 @@ export default function Config({userRole}) {
                             }}
                             noValidate
                             autoComplete="off"
-                        >
-                            <div>
-                                <TextField
-                                    id="outlined-select-langue"
-                                    select
-                                    label="Choisir la langue du serveur"
-                                    value={language}
-                                    onChange={handleLanguageChange}
-                                    helperText="Choisisez une langue"
-                                >
-                                    {langue.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </div>
+                            >
+                            <TextField
+                                id="outlined-select-langue"
+                                select
+                                label="Choisir la langue du serveur"
+                                value={language}
+                                onChange={handleLanguageChange}
+                            >
+                                {langue.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Box>
                     </div>
-                </div>
-                <div className="levelContainer">
-                    <div>
+                    <div className="difficultyContainer">
                         <h3>
                             Difficulté
                         </h3>
-                    </div>
-                    <div>
                         <Box
                             component="form"
                             sx={{
@@ -173,129 +151,106 @@ export default function Config({userRole}) {
                             noValidate
                             autoComplete="off"
                         >
-                            <div>
-                                <TextField
-                                    id="outlined-select-Level"
-                                    select
-                                    label="Choix de la difficulté"
-                                    value={Level}
-                                    onChange={handleLevelChange}
-                                    helperText="Choisir un niveaux"
+                            <TextField
+                                id="outlined-select-Level"
+                                select
+                                label="Choix de la difficulté"
+                                value={Level}
+                                onChange={handleLevelChange}
                                 >
-                                    {differentLevel.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </div>
+                                {differentLevel.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Box>
                     </div>
-                </div>
-                </div>
-                <div className="mapContainer">
-                    <div>
+                    <div className="mapContainer">
                         <h3>
                             Nom de la map
                         </h3>
+                        <div>
+                            <Box
+                                component="form"
+                                sx={{
+                                    '& > :not(style)': { m: 1, width: '52ch' },
+                                }}
+                                noValidate
+                                autoComplete="off"
+                            >
+                                <TextField id="mapMessage" label="Nom de la map" variant="outlined" />
+                            </Box>
+                        </div>
                     </div>
-                    <div>
+                    <div className="gameContainer">
+                        <h3>
+                            Choix du Jeux
+                        </h3>
                         <Box
                             component="form"
                             sx={{
-                                '& > :not(style)': { m: 1, width: '52ch' },
+                                '& .MuiTextField-root': { m: 1, width: '25ch' },
                             }}
                             noValidate
                             autoComplete="off"
                         >
-                            <TextField id="mapMessage" label="Nom de la map" variant="outlined" />
+                            <TextField
+                                id="outlined-select-game"
+                                select
+                                label="Choisir un jeux"
+                                value={game}
+                                onChange={handleGameChange}
+                            >
+                                {videoGame.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Box>
-
                     </div>
-                </div>
-            </div>
-            <div className="optionContainer">
-                <div className="subdomainContainer2">
-                    <div className="gameChoice">
+                    <div className="versionContainer">
+                        <FormControl component="fieldset">
+                            <FormLabel component="legend">Choix de Version</FormLabel>
+                            <RadioGroup row aria-label="vesion" name="row-radio-buttons-group">
+                                <FormControlLabel value="1.0" control={<Radio />} label="1.0" />
+                                <FormControlLabel value="2.0" control={<Radio />} label="2.0" />
+                                <FormControlLabel value="3.0" control={<Radio />} label="3.0" />
+                                <FormControlLabel
+                                value="Latest"
+                                control={<Radio />}
+                                label="Derniere Version"
+                                />
+                            </RadioGroup>
+                        </FormControl>
+                    </div>
+                    <div className="deliveryOption">
                         <h3>
-                            Choix du Jeux
+                            Option de livraison
                         </h3>
+                        <FormGroup>
+                            <FormControlLabel control={<Checkbox defaultChecked />} label="Redemarrage auto" />
+                            <FormControlLabel control={<Checkbox />} label="WhiteList" />
+                            <FormControlLabel control={<Checkbox  />} label="Commande Block" />
+                            <FormControlLabel control={<Checkbox />} label="PVP" />
+                            <FormControlLabel control={<Checkbox />} label="PNJ" />
+                            <FormControlLabel  control={<Checkbox />} label="Monstre" />
+                            <FormControlLabel  control={<Checkbox />} label="Animaux" />
+                            <FormControlLabel  control={<Checkbox />} label="Mode Survie" />
+                            <FormControlLabel  control={<Checkbox />} label="Mode Hardcore" />
+                            <FormControlLabel  control={<Checkbox />} label="Autoriser autre joueurs" />
+                        </FormGroup>
                     </div>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                    <div>
-                                <TextField
-                                    id="outlined-select-game"
-                                    select
-                                    label="Choisir un jeux"
-                                    value={game}
-                                    onChange={handleGameChange}
-                                    helperText="Choisisez votre jeux"
-                                >
-                                    {videoGame.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </div>
-                    </Box>
-                </div>
-                <div className="versionContainer">
-                    <div>
-                    <FormControl component="fieldset">
-                    <FormLabel component="legend">Choix de Version</FormLabel>
-                    <RadioGroup row aria-label="vesion" name="row-radio-buttons-group">
-                        <FormControlLabel value="1.0" disabled control={<Radio />} label="1.0" />
-                        <FormControlLabel value="2.0" disabled control={<Radio />} label="2.0" />
-                        <FormControlLabel value="3.0" disabled control={<Radio />} label="3.0" />
-                        <FormControlLabel
-                        value="Latest"
-                        disabled
-                        control={<Radio />}
-                        label="Derniere Version"
-                        />
-                    </RadioGroup>
-                    </FormControl>
-
-                    </div>
-                </div>
-                <div className="deliveryOption">
-                <div className="optionLivraison">
-                    <h3>
-                        Option de livraison
-                    </h3>
-                <FormGroup>
-                    <FormControlLabel control={<Checkbox defaultChecked />} label="Redemarrage auto" />
-                    <FormControlLabel control={<Checkbox />} label="WhiteList" />
-                    <FormControlLabel control={<Checkbox  />} label="Commande Block" />
-                    <FormControlLabel control={<Checkbox />} label="PVP" />
-                    <FormControlLabel control={<Checkbox />} label="PNJ" />
-                    <FormControlLabel  control={<Checkbox />} label="Monstre" />
-                    <FormControlLabel  control={<Checkbox />} label="Animaux" />
-                    <FormControlLabel  control={<Checkbox />} label="Mode Survie" />
-                    <FormControlLabel  control={<Checkbox />} label="Mode Hardcore" />
-                    <FormControlLabel  control={<Checkbox />} label="Autoriser autre joueurs" />
-
-                </FormGroup>
-                </div>
                 </div>
                 <div className="send">
-                <Stack direction="row" spacing={2}>
-                    <Button variant="contained" endIcon={<SendIcon />}>
-                        Envoyer
-                    </Button>
-                </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" endIcon={<SendIcon />}>
+                            Envoyer
+                        </Button>
+                    </Stack>
                 </div>
-            </div>
+            </ConfigWidget>
         </div>
     )
-
-
 }

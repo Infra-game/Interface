@@ -30,3 +30,11 @@ export const GamesWidget = ({size,startGame,destroyGame}) => {
     );
 }
 
+export const ConfigWidget = ({size,children}) => {
+    return (
+        <div className={`widget config-widget ${size ? "size-"+size : ""}`}>
+            {children}
+        </div>
+    );
+}
+

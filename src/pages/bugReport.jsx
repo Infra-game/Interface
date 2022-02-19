@@ -31,7 +31,7 @@ export default function BugReport({userRole}) {
     };    
 
         return (
-        <div className="bug">
+        <div className="page bug">
             <div className="typeBug">
                 <Box 
                 component="form"

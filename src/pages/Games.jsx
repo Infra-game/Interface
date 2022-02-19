@@ -22,7 +22,7 @@ const Games = ({userRole}) => {
     }
     
     return (
-        <div className="games">
+        <div className="page games">
 
             <GamesWidget size="80" startGame={(game) => startGame(game)} destroyGame={(game) => destroyGame(game)}/>
 
