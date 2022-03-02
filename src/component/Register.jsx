@@ -14,7 +14,7 @@ const Register = ({changeType}) => {
         let error = false;
         if(!email.includes("@")) {
             error = "Veuillez entrer une adresse mail valide."
-        } else if(password!=confPassword) {
+        } else if(password!==confPassword) {
             error = "Les mots de passe doivent être identiques."
         }
 

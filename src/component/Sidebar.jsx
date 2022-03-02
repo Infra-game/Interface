@@ -1,5 +1,4 @@
-import { PeopleAlt,BugReport, Forum, Help, LineStyle, Memory, Monitor, SettingsApplications, Timeline , VpnKey, VideogameAsset, GridViewRounded, House } from '@mui/icons-material';
-import { useEffect } from 'react';
+import { PeopleAlt,BugReport, Forum, Help, Monitor, Memory, SettingsApplications, Timeline , VideogameAsset, House } from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
 
 const Sidebar = ({page,role}) => {
