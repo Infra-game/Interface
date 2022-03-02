@@ -1,8 +1,7 @@
-import "./newUser.css";
-import axios from '../../axiosConfig';
+import axios from '../axiosConfig';
 import { useState } from 'react';
-import { tokenHeaders } from "../../Utils";
-import Sidebar from "../../component/Sidebar";
+import { tokenHeaders } from "../Utils";
+import { FillWidget } from '../component/Widgets';
 
 export default function NewUser({userRole}) {
 
@@ -18,9 +17,8 @@ const addUser = () => {
 
   
   return (
-    <div className="newUser">
-      <Sidebar role={userRole}/>
-      <div className="content">
+    <div className="page newUser">
+      <FillWidget size="80">
         <h1 className="newUserTitle">Nouvel Utilisateur</h1>
         <form className="newUserForm">
           <div className="newUserItem">
@@ -53,7 +51,7 @@ const addUser = () => {
           </div>
           <button className="newUserButton" onClick={() => addUser()}>Create</button>
         </form>
-      </div>
+      </FillWidget>
     </div>
   );
 }

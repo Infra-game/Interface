@@ -1,7 +1,6 @@
-import "./user.css"
 import { PermIdentity , CalendarToday , PhoneAndroid,  AlternateEmail , LocationOn  } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import Sidebar from "../../component/Sidebar"
+import Sidebar from "../component/Sidebar"
 
 export default function User({userRole}) {
     if(userRole.toLowerCase()==="admin") {

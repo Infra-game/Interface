@@ -121,18 +121,16 @@ export default function UserList() {
                     <button className="userAddButton">
                         Create
                     </button>
-                    </Link>
-                <div style={{ height: 700, width: '100%' }}>
-                    {users.length>0 && 
-                    <DataGrid
-                    rows={users}
-                    enableSelectionOnClick
-                    columns={columns}
-                    pageSize={15}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                    />} 
-                </div>
+                </Link>
+                {users.length>0 && 
+                <DataGrid
+                rows={users}
+                enableSelectionOnClick
+                columns={columns}
+                pageSize={15}
+                rowsPerPageOptions={[10]}
+                checkboxSelection
+                />} 
             </FillWidget>
         </div>
     )
