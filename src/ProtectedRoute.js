@@ -23,7 +23,8 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
     }
 
     useEffect(() => {
-        isAuth();
+         //isAuth();
+         setAuth(true)
     }, [])
 
     if(auth==="") { // ne pas comparé avec du vide if(auth)
