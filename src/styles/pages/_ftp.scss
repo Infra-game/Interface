@@ -1,0 +1,17 @@
+.page.FTP {
+    .fill-widget {
+        .password {
+            display: flex;
+            justify-content: space-between;
+
+            .MuiTextField-root, input {
+                width: 30%;
+            }
+
+            .send {
+                color: white;
+                background-color: $bleu_1;
+            }
+        }
+    }
+}

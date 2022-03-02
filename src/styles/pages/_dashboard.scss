@@ -1,0 +1,91 @@
+.dashboard {
+    height: 100%;
+    max-height: 100vh;
+
+    * {
+        transition-duration: 0.2s;
+    }
+
+    &.darkmode {
+        background-color: $darkmode_bg;
+
+        .topbar {
+            background-color: $darkmode_div;
+
+            h1, p {
+                color: white !important;
+            }
+
+            .topbarWrapper {
+                border-color: $darkmode_bg;
+            }
+        }
+
+        .sidebar {
+            background-color: $darkmode_div;
+            color: white;
+        }
+
+        .widget {
+            background-color: $darkmode_div;
+            color: white;
+            box-shadow: 0px 10px 30px rgba(17, 38, 146, 0.05);
+
+            &.games-widget {
+                .game-card {
+                    background-color: $darkmode_bg;
+                }
+            }
+
+            &.configContainer {
+                .MuiOutlinedInput-notchedOutline {
+                    border: none !important ;
+                }
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        height: 100%;
+
+        .page-content {
+            width: 100%;
+            position: relative;
+            overflow-y: scroll;
+
+            
+            .banner {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                z-index: 0;
+                color: white;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                height: 200px;
+                background-color: $bleu_2;
+                background-image: url("../../assets/arches.png");
+                
+                h1 {
+                    text-align: center;
+                    font-size: 50px;
+                }
+            }
+            
+            .page {
+                width: 100%;
+                position: absolute;
+                top: 150px;
+                z-index: 2;
+                padding-bottom: 100px;
+
+                .widget {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+    }
+}

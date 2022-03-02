@@ -1,0 +1,74 @@
+.topbar {
+    background-color: white;
+    max-height: 100px;
+
+    .topbarWrapper {
+        max-height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $lightgray_1;
+
+        .topbarGroup {
+            display: flex;
+            align-items: center;
+
+            &>* {
+                margin: 15px;
+
+                * {
+                    margin: 0;
+                }
+            }
+
+            .logo {
+                color: black;
+            }
+
+            .searchBar {
+                height: fit-content;
+                border: 1px solid $lightgray_1;
+                border-radius: 2px;
+                font-size: 15px;
+
+                &::after {
+                    border-bottom: 2px solid $bleu_1;
+                }
+
+                svg, input::placeholder {
+                    color: $gray;
+                }
+            }
+
+            .options {
+                svg {
+                    color: $bleu_1;
+                }
+            }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+
+                &>* {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                img {
+                    height: 50px;
+                    border-radius: 50%;
+                }
+
+                .username {
+                    color: black;
+                }
+
+                .role {
+                    color: $gray;
+                }
+            }
+        }
+    }
+}

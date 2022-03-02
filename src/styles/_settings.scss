@@ -1,0 +1,37 @@
+$bleu_1: rgb(59,87,231);
+$bleu_2: rgb(0,72,177);
+$gray : #8A92A5;
+$lightgray_1 : #D2D2D9;
+$lightgray_2 : #E8ECEF;
+$darkmode_bg : #171A25;
+$darkmode_div : #222738;
+
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: $lightgray_2;
+    font-family: 'Inter';
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button.icon-button {
+    border: none;
+    background: none;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    
+    &:hover {
+        transform: scale(1.2);
+    }
+}
