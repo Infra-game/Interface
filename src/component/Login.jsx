@@ -10,7 +10,7 @@ const Login = ({changeType}) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = ({}) => {
+  const handleSubmit = () => {
     axios
     .post("/login", {auth, password})
     .then((res) => {
