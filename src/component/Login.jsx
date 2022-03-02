@@ -2,16 +2,17 @@ import { Button } from "@material-ui/core";
 import { TextField } from "@mui/material";
 import axios from "../axiosConfig";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Login = ({changeType}) => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  let history = useHistory();
+  const [auth, setAuth] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = ({history}) => {
+  const handleSubmit = ({}) => {
     axios
-    .post("/login", {email, username, password})
+    .post("/login", {auth, password})
     .then((res) => {
         if(!res.data.error) {
           localStorage.setItem("token", res.data.accessToken);
@@ -28,16 +29,10 @@ const Login = ({changeType}) => {
       <div className="form">
         <h2>Se connecter</h2>
         <TextField
-        label="Email"
+        label="Email ou Nom d'utilisateur"
         variant="outlined"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-        label="Username"
-        variant="outlined"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={auth}
+        onChange={(e) => setAuth(e.target.value)}
         />
         <TextField
         label="Mot de passe"
