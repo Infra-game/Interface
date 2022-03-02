@@ -2,9 +2,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    .config-widget {
-        margin: 0 auto;
-
+    .fill-widget {
         &>* {
             display: flex;
             flex-wrap: wrap;

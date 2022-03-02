@@ -8,6 +8,14 @@ export const DummyWidget = ({size}) => {
     );
 };
 
+export const FillWidget = ({size,children}) => {
+    return (
+        <div className={`widget fill-widget ${size ? "size-"+size : ""}`}>
+            {children}
+        </div>
+    );
+}
+
 export const GamesWidget = ({size,startGame,destroyGame}) => {
     return (
         <div className={`widget games-widget ${size ? "size-"+size : ""}`}>
@@ -30,11 +38,4 @@ export const GamesWidget = ({size,startGame,destroyGame}) => {
     );
 }
 
-export const ConfigWidget = ({size,children}) => {
-    return (
-        <div className={`widget config-widget ${size ? "size-"+size : ""}`}>
-            {children}
-        </div>
-    );
-}
 

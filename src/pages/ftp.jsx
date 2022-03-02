@@ -2,6 +2,9 @@ import React  from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import SendIcon from '@mui/icons-material/Send';
+import { FillWidget } from "../component/Widgets";
+import { Button, Stack } from "@material-ui/core";
 
 const acces = [
     {
@@ -14,7 +17,7 @@ const acces = [
     },
 ];
 
-export default function FTP({userRole}) {
+const FTP = ({userRole}) => {
     const [accesFTP, setacces] = React.useState('Total');
     const [Password, setpassword] = React.useState('');
     const [ConfPassword, setConfpassword] = React.useState('');
@@ -26,12 +29,12 @@ export default function FTP({userRole}) {
 
     const handleSubmit = () => {
         if (Password === ConfPassword){
-            setreponse ("Mot de passe correcte")
+            setreponse ("Mot de passe correct")
         } else {
-            setreponse ("Mot de passe incorrecte")
+            setreponse ("Mot de passe incorrect")
         }
     }
-    
+
       /*const { register, errors, handleSubmit, watch } = useForm({});
       const password = useRef({});
       password.current = watch("password", "");
@@ -42,7 +45,7 @@ export default function FTP({userRole}) {
 
    return ( 
         <div className="page FTP">
-            <div className="FTPContainer">
+            <FillWidget size={80}>
                 <div className="subdomainContainer">
                     <div className="subdomain">
                         <h3>
@@ -57,7 +60,11 @@ export default function FTP({userRole}) {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField id="FTPSubname" label="FTP" variant="outlined" />
+                        <TextField
+                            id="FTPSubname"
+                            label="FTP"
+                            variant="outlined"
+                        />
                         <TextField
                             disabled
                             id="outlined-disabled"
@@ -88,7 +95,6 @@ export default function FTP({userRole}) {
                                     label="Choisir un droit"
                                     value={accesFTP}
                                     onChange={handleAccesChange}
-                                    helperText="Choisisez votre jeux"
                                 >
                                     {acces.map((option) => (
                                         <MenuItem key={option.value} value={option.value}>
@@ -100,25 +106,34 @@ export default function FTP({userRole}) {
                         </Box>
                     </div>
                 </div>
+                <h3>
+                    Mot de passe
+                </h3>
                 <form onSubmit={e => e.preventDefault()}>
-                    <label>Mot de passe</label>
-                    <input
-                        name="password"
-                        type="password"
-                        value ={Password}
-                        onChange = {e => setpassword(e.target.value) }
-                    />
-                    <label>Comfirme mot de passe</label>
-                    <input
-                        name="password_repeat"
-                        type="password"
-                        value ={ConfPassword}
-                        onChange = {e => setConfpassword(e.target.value) }
-                    />
-                    {reponse}
-                    <input type="submit" onClick={() => handleSubmit()} />
+                    <div className="password">
+                        <TextField
+                            id="mdp"
+                            label="Mot de passe"
+                            variant="outlined"
+                            value={Password}
+                            onChange = {e => setpassword(e.target.value) }
+                        />
+                        <TextField
+                            id="mdpConfirm"
+                            label="Confirmer le mot de passe"
+                            variant="outlined"
+                            value={ConfPassword}
+                            onChange = {e => setConfpassword(e.target.value) }
+                        />
+                        <Button variant="contained" className="send">
+                            Envoyer
+                        </Button>
+                    </div>
                 </form>
-            </div>
+                {reponse}
+            </FillWidget>
         </div>
     )
 }
+
+export default FTP;

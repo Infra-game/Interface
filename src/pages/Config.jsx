@@ -12,7 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
-import { ConfigWidget } from '../component/Widgets'
+import { FillWidget } from '../component/Widgets'
 
 const langue = [
     {
@@ -80,7 +80,7 @@ export default function Config({userRole}) {
 
     return (
         <div className="page config">
-            <ConfigWidget size="80">
+            <FillWidget size="80">
                 <div className="configContainer">
                     <div className="subdomainContainer">
                         <h3>Choix du Nom de Sous Domaine</h3>
@@ -250,7 +250,7 @@ export default function Config({userRole}) {
                         </Button>
                     </Stack>
                 </div>
-            </ConfigWidget>
+            </FillWidget>
         </div>
     )
 }

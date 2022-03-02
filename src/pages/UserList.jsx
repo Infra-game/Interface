@@ -11,6 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { tokenHeaders } from "../Utils";
+import { FillWidget } from '../component/Widgets';
 
 
 export default function UserList() {
@@ -115,23 +116,24 @@ export default function UserList() {
 
     return (
         <div className="page userList">
-            <Link  to ="/newUser">
-                <button className="userAddButton">
-                    Create
-                </button>
-                </Link>
-            <div style={{ height: 700, width: '100%' }}>
-                {users.length>0 && 
-                <DataGrid
+            <FillWidget size="80">
+                <Link  to ="/newUser">
+                    <button className="userAddButton">
+                        Create
+                    </button>
+                    </Link>
+                <div style={{ height: 700, width: '100%' }}>
+                    {users.length>0 && 
+                    <DataGrid
                     rows={users}
                     enableSelectionOnClick
                     columns={columns}
                     pageSize={15}
                     rowsPerPageOptions={[10]}
                     checkboxSelection
-                    
-                />} 
-            </div>
+                    />} 
+                </div>
+            </FillWidget>
         </div>
     )
 }

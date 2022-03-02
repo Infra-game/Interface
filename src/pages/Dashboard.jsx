@@ -7,7 +7,6 @@ const Dashboard = ({Page,pageName}) => {
     
     const getTitle = (pageName) => {
       let title;
-      console.log(pageName);
       switch (pageName) {
           case "home":
               title = "Accueil"
@@ -41,7 +40,6 @@ const Dashboard = ({Page,pageName}) => {
                 <div className="page-content">
                     <div className="banner">
                         <h1>{getTitle(pageName)}</h1>
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
                     </div>
                     <Page/>
                 </div>

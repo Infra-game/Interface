@@ -33,7 +33,7 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
         return (
             <Route {...rest} render={(props) => {
                 if(auth===true) {
-                    return <Dashboard userRole={role} Page={Component} pageName={pageName} {...props}/>
+                    return <Dashboard userRole={role} Page={Component} pageName={pageName} {...props} {...rest}/>
                 } else {
                     return (
                         <Redirect to={{pathname: "/login"}} />

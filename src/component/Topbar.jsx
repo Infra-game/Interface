@@ -9,7 +9,7 @@ const Topbar = ({darkmode, setDarkmode}) => {
             <div className="topbarWrapper">
                 <div className="topbarGroup"> 
                     <Link to="/">
-                        <span className="logo"><h1>LobbyOne</h1></span>
+                        <span className="logo"><h1>LobbyWan</h1></span>
                     </Link>
                     <Input
                     startAdornment={
