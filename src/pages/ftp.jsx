@@ -2,9 +2,8 @@ import React  from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import SendIcon from '@mui/icons-material/Send';
 import { FillWidget } from "../component/Widgets";
-import { Button, Stack } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const acces = [
     {
@@ -125,7 +124,7 @@ const FTP = ({userRole}) => {
                             value={ConfPassword}
                             onChange = {e => setConfpassword(e.target.value) }
                         />
-                        <Button variant="contained" className="send">
+                        <Button variant="contained" className="send" onClick={() => handleSubmit()}>
                             Envoyer
                         </Button>
                     </div>
