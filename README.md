@@ -1,51 +1,65 @@
-# Message pour l'équipe
+# InfraGame Interface
 
-Pour respecter les meilleurs pratiques en termes de devellopement, seul les chefs de projet (Pour le moment) on des droits en écriture. 
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
 
-Vous devez faire Fork du projet ( onglet en haut à droite) pour travailler dessus via votre compte github , l'objectif est de permettre au chef de projet d'avoir un regard sur vos modification au travers des pull request sans vous empecher de travailler correctement .
+this is the visual part of project, with the development of the site.
 
-je vous laisse consulter le site : 
 
-https://git-flow.readthedocs.io/fr/latest/index.html pour connaitre comment fonctionne le git flow 
-
-https://grafikart.fr/tutoriels/fork-pull-request-591#autoplay pour un peux mieux comprendre le fork&pull request 
-
-## Régle de nommage des branches  : 
-
-How to name your supporting branch prefixes?
-
-- Feature branches? [feature/]
-- Bugfix branches? [bugfix/]
-- Release branches? [release/]
-- Hotfix branches? [hotfix/]
-- Support branches? [support/]
-
- ## Note sur le remote 
- 
- Quand vous clonner votre projet vous pouvez vérifier les dépot disponible avec 
- ```sh
- git remote -v
- ```
-donnant le resultat suivant : 
-
-- origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-- origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-
-pour rajouter le dépot d'équipe pour les pull request/ merge 
-```sh 
-git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+## Start  
+The Interface is always started, you don't have to start it. 
+However, to connect, you must go to the following link
+```bash
+http://192.168.68.90:3000/
 ```
-Upstream signifie que vous n'etes pas propriétaire du dépot.
 
-Pour vos push en local vous pourrez faire  : 
-
-```sh
-git push origin BRANCHES/NOM_DE_BRANCH
+To run the code, you should use on terminal 
+```bash 
+npm start
 ```
-Le pull request se fait depuis votre page github 
 
-Voici un schéma explicatif 
 
-![image](https://user-images.githubusercontent.com/66829997/137392913-d30ec40e-9011-4349-9ba0-334b95af5d13.png)
+## Made with
 
-# Projet 
+* [Visual Studio Code](https://code.visualstudio.com/) - Text editor
+* [Node JS](https://nodejs.org/en/) - Node.js is a free software platform in JavaScript
+* [Express JS](https://expressjs.com/fr/) - Express.js is a framework for building web applications based on Node.js.
+* [React](https://fr.reactjs.org/) - React is a free Javascript library
+* [Material UI](https://mui.com/) - MUI provides a simple, customizable, and accessible library of React components.
+
+## API ENDPOINT
+```
+List of available API (browseable) at /api
+* /
+* /users
+* /users/:userId
+* /newUser
+* /games
+* /config
+* /ftp
+* /bugreport
+* /login
+
+```
+
+## Versions
+
+**Latest stable release :** 
+
+**Latest release :** 
+
+
+## Contributors 
+
+* **Stephane DUBOZE** _alias_ [@Black-Thor](https://github.com/Black-Thor)
+* **John-Kenneth TAYLOR AFONAH** _alias_ [@KenTay198](https://github.com/KenTay198)
+* **Mohamed Mehdi GUEMIDI** _alias_ [@Diabet0](https://github.com/Diabet0)
+* **Idris MEZNAD** _alias_ [@mezdidis](https://github.com/mezdidis)
+
+
+## Author
+
+* **Idris MEZNAD** _alias_ [@mezdidis](https://github.com/mezdidis)
+
+
