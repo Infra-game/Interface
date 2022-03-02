@@ -1,5 +1,14 @@
 import React from 'react';
 
+/**
+ * Widget for User information
+ * Wiget for server information
+ * @param { string } size 
+ * @param { string } children
+ * @param { string } destroyGame
+ * @param { string } startGame
+ * @returns {Promise}
+ */
 export const DummyWidget = ({size}) => {
     return (
         <div className={`widget ${size ? "size-"+size : ""}`}>

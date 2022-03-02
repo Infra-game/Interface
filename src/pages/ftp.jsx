@@ -5,6 +5,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { FillWidget } from "../component/Widgets";
 import { Button } from "@material-ui/core";
 
+/**
+ * definition of the acces consistency 
+ * filling in the possible choices 
+ */
 const acces = [
     {
         value: 'Total',
@@ -16,6 +20,11 @@ const acces = [
     },
 ];
 
+/**
+ * FTP Page for ftp access
+ * @param { string } userRole
+ * @returns { HTMLElement }
+ */
 const FTP = ({userRole}) => {
     const [accesFTP, setacces] = React.useState('Total');
     const [Password, setpassword] = React.useState('');

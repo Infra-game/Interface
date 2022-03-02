@@ -1,6 +1,12 @@
 import { PeopleAlt,BugReport, Forum, Help, Monitor, Memory, SettingsApplications, Timeline , VideogameAsset, House } from '@mui/icons-material';
 import {  Link  } from "react-router-dom";
 
+/**
+ * Create side bar with access to other pages 
+ * @param { string } role
+ * @param { string } Page
+ * @returns { HTMLElement }
+ */
 const Sidebar = ({page,role}) => {
     return (
         <div className="sidebar">

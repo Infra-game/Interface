@@ -14,6 +14,11 @@ import { tokenHeaders } from "../Utils";
 import { FillWidget } from '../component/Widgets';
 
 
+/**
+ * UserList page to show existing users 
+ * @param { function UserList(users, setUsers) }
+ * @returns { Promise }
+ */
 export default function UserList() {
     const [users, setUsers] = useState([]);
     

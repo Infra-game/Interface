@@ -8,6 +8,10 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { FillWidget } from '../component/Widgets';
 
+/**
+ * definition of the Bug constancy
+filling in the possible choices 
+ */
 const Bug = [
     {
         value: 'VIS',
@@ -22,6 +26,11 @@ const Bug = [
         label: 'Autres',
     },
 ];
+/**
+ * Bug report page 
+ * @param { string } userRole 
+ * @returns { Promise }
+ */
 
 export default function BugReport({userRole}) {
 

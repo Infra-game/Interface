@@ -2,6 +2,15 @@ import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import axios from "../axiosConfig";
 
+/**
+ * Register page 
+ * @param { string } email
+ * @param { string } username
+ * @param { string } fullname
+ * @param { string } password
+ * @param { string } role
+ * @returns { HTMLElement }
+ */
 const Register = ({changeType}) => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
