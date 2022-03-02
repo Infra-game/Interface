@@ -13,8 +13,8 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
         .get("/isAuth", {headers: {
         authorization : localStorage.getItem("token")
         }})
-        if(res.data.error) {
-            setError(res.data.message);
+        if(res.data.error) { 
+            setError(res.data.message); //emettre une erreur recup par le try catch , la fonctionne que avec une erreur 200 
             setAuth(false);
         } else {
             setRole(res.data.role);
@@ -23,11 +23,10 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
     }
 
     useEffect(() => {
-        //isAuth();
-        setAuth(true);
+        isAuth();
     }, [])
 
-    if(auth==="") {
+    if(auth==="") { // ne pas comparé avec du vide if(auth)
         return <div>{error}</div>;
     } else {
         return (
