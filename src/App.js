@@ -5,7 +5,7 @@ import UserList from "./pages/UserList";
 import User from './pages/User';
 import NewUser from './pages/NewUser';
 import Config from './pages/Config';
-import FTP from './pages/ftp';
+import FTP from './pages/Ftp';
 import  BugReport from './pages/bugReport';
 import NotFound from './pages/NotFound';
 import Games from './pages/Games';
