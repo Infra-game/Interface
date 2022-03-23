@@ -32,6 +32,9 @@ const Dashboard = ({Page,pageName}) => {
           case "bugreport":
               title = "Bug Report"
               break;
+          case "monitoring":
+              title = "Monitoring"
+              break;
           default:
               break;
       }

@@ -20,6 +20,10 @@ import NotFound from './pages/notFound/NotFound';
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
 import Games from './pages/games/Games';
 import ProtectedRoute from './ProtectedRoute';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBell, faEnvelope, faSearch } from '@fortawesome/free-solid-svg-icons';
+import Registerlogin from './pages/Registerlogin';
+import Monitoring from './pages/Monitoring';
 
 
 
@@ -34,15 +38,17 @@ function App() {
         <Topbar/>
         <div className="container">
           <Switch>
-            <ProtectedRoute path="/" exact component={Home} />
-            <ProtectedRoute path="/users" exact component={ UserList } />
-            <ProtectedRoute path="/user/:userId" exact component={ User } />
-            <ProtectedRoute path="/newUser" exact component={ NewUser } />é
-            <ProtectedRoute path="/games" exact component={ Games } />
-            <ProtectedRoute path="/config" exact component={ Config } />
-            <ProtectedRoute path="/ftp" exact component={ FTP } />
-            <ProtectedRoute path="/bugreport" exact component={ BugReport } />
-            <Route path="/login" exact component={Login} />
+            <ProtectedRoute path="/" exact component={Home} pageName="home"/>
+            <ProtectedRoute path="/users" exact component={UserList} pageName="user"/>
+            <ProtectedRoute path="/user/:userId" exact component={User} pageName="user"/>
+            <ProtectedRoute path="/newUser" exact component={NewUser} pageName="user"/>
+            <ProtectedRoute path="/monitoring" exact component={Monitoring} pageName="monitoring"/>
+            <ProtectedRoute path="/games" exact component={Games} pageName="games"/>
+            <ProtectedRoute path="/config" exact component={Config} pageName="config"/>
+            <ProtectedRoute path="/ftp" exact component={FTP} pageName="ftp"/>
+            <ProtectedRoute path="/bugreport" exact component={BugReport} pageName="bugreport"/>
+            <Route path="/login" exact render={()=><Registerlogin type="login"/>}/>
+            <Route path="/register" exact render={()=><Registerlogin type="register"/>}/>
             <Route component={ NotFound } />
           </Switch>
         </div>
