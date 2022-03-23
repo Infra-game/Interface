@@ -5,7 +5,7 @@ import UserList from "./pages/UserList";
 import User from './pages/User';
 import NewUser from './pages/NewUser';
 import Config from './pages/Config';
-import FTP from './pages/Ftp';
+import FTP from './pages/ftp';
 import  BugReport from './pages/bugReport';
 import NotFound from './pages/NotFound';
 import Games from './pages/Games';
@@ -13,6 +13,7 @@ import ProtectedRoute from './ProtectedRoute';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBell, faEnvelope, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Registerlogin from './pages/Registerlogin';
+import Monitoring from './pages/Monitoring';
 
 library.add(
     faBell,
@@ -28,6 +29,7 @@ function App() {
             <ProtectedRoute path="/users" exact component={UserList} pageName="user"/>
             <ProtectedRoute path="/user/:userId" exact component={User} pageName="user"/>
             <ProtectedRoute path="/newUser" exact component={NewUser} pageName="user"/>
+            <ProtectedRoute path="/monitoring" exact component={Monitoring} pageName="monitoring"/>
             <ProtectedRoute path="/games" exact component={Games} pageName="games"/>
             <ProtectedRoute path="/config" exact component={Config} pageName="config"/>
             <ProtectedRoute path="/ftp" exact component={FTP} pageName="ftp"/>

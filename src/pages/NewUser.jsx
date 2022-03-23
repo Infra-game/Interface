@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { tokenHeaders } from "../Utils";
 import { FillWidget } from '../component/Widgets';
 
+
+/**
+ * Home page 
+ * @param { string } userRole 
+ * @returns { HTMLElement }
+ */
 export default function NewUser({userRole}) {
 
 const addUser = () => {
@@ -13,9 +19,7 @@ const addUser = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setfullName] = useState("");
- 
 
-  
   return (
     <div className="page newUser">
       <FillWidget size="80">

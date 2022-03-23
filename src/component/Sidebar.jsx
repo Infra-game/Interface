@@ -1,7 +1,25 @@
 import { PeopleAlt,BugReport, Forum, Help, Monitor, Memory, SettingsApplications, Timeline , VideogameAsset, House } from '@mui/icons-material';
+import { useEffect } from 'react';
 import {  Link  } from "react-router-dom";
 
+/**
+ * Create side bar with access to other pages 
+ * @param { string } role
+ * @param { string } Page
+ * @returns { HTMLElement }
+ */
 const Sidebar = ({page,role}) => {
+    useEffect(() => {
+        let listItems = document.getElementsByClassName("sidebarListItem");
+        for(let i=0;i<listItems.length;i++) {
+            if(listItems[i].id !== page) {
+                listItems[i].classList.remove("active");
+            } else {
+                listItems[i].classList.add("active");
+            }
+        }
+    })
+
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
@@ -9,23 +27,25 @@ const Sidebar = ({page,role}) => {
                     <h3 className="sidebarGroupTitle">Tableau de bord</h3>
                     <ul className="sidebarList">
                         <Link to="/" >
-                            <li id="home" className={`sidebarListItem ${page==="home" ? "active" : ""}`}>
+                            <li id="home" className="sidebarListItem">
                                 <House /><p>Accueil</p>
                             </li>
                         </Link>
-                        <li id="monitoring" className="sidebarListItem">
-                            <Monitor/><p>Monitoring</p>
-                        </li>
+                        <Link to="/monitoring">
+                            <li id="monitoring" className="sidebarListItem">
+                                <Monitor/><p>Monitoring</p>
+                            </li>
+                        </Link>
                         <li id="stats" className="sidebarListItem">
                             <Timeline/><p>Stats</p>
                         </li>
                         <Link to="/users">
-                            <li id="user" className={`sidebarListItem ${page==="user" ? "active" : ""}`}>
+                            <li id="user" className="sidebarListItem">
                                 <PeopleAlt/><p>Utilisateurs</p>
                             </li>
                         </Link>
                         <Link to="/games">
-                            <li id="games" className={`sidebarListItem ${page==="games" ? "active" : ""}`}>
+                            <li id="games" className="sidebarListItem">
                                 <VideogameAsset/><p>Jeux</p>
                             </li>
                         </Link>
@@ -36,17 +56,17 @@ const Sidebar = ({page,role}) => {
                     <h3 className="sidebarGroupTitle">Gestion du Serveur</h3>
                     <ul className="sidebarList">
                     <Link to="/Config">
-                        <li className={`sidebarListItem ${page==="config" ? "active" : ""}`}>
+                        <li id="config" className="sidebarListItem">
                             <SettingsApplications /><p>Config</p>
                         </li>
                     </Link>
 
                     <Link to="/FTP">
-                        <li className={`sidebarListItem ${page==="ftp" ? "active" : ""}`}>
+                        <li id="ftp" className="sidebarListItem">
                             <SettingsApplications /><p>Accès FTP</p>
                         </li>
                     </Link>
-                        <li className="sidebarListItem">
+                        <li id="ressources" className="sidebarListItem">
                             <Memory/><p>Ressources</p>
                         </li>
                     </ul>
@@ -55,15 +75,15 @@ const Sidebar = ({page,role}) => {
                     <h3 className="sidebarGroupTitle">Support</h3>
                     <ul className="sidebarList">
                     <Link to="/bugReport">
-                        <li className={`sidebarListItem ${page==="bugreport" ? "active" : ""}`}>
+                        <li id="bugreport" className="sidebarListItem">
                             <BugReport /><p>Bug Report </p>
                         </li>
                     </Link>
 
-                        <li className="sidebarListItem">
+                        <li id="faq" className="sidebarListItem">
                             <Help/><p>FAQ</p> 
                         </li>
-                        <li className="sidebarListItem">
+                        <li id="forum" className="sidebarListItem">
                             <Forum/><p>Forum</p>
                         </li>
                     </ul>

@@ -2,6 +2,14 @@ import axios from '../axiosConfig';
 import React, { useState } from 'react';
 import { GamesWidget } from '../component/Widgets';
 
+
+/**
+ * definition of Games,statusGame, startGame, destroyGame consistencies
+ * filling in the possible choices 
+ * Game page 
+ * @param { string } userRole
+ * @returns 
+ */
 const Games = ({userRole}) => {
     const [response, setResponse] = useState("");
 

@@ -3,6 +3,12 @@ import {EmailRounded, LightModeRounded, DarkModeRounded, NotificationsRounded, S
 import {  Link  } from "react-router-dom";
 import { Input, InputAdornment } from '@mui/material';
 
+/**
+ * create top bar on the site 
+ * @param { string } darkmode
+ * @param { string } setDarkmode 
+ * @returns {Promise}
+ */
 const Topbar = ({darkmode, setDarkmode}) => {
     return (
         <div className="topbar">

@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * it is a footer with the site's information
+ * @returns {HTMLElement}
+ */
 const Footer = () => {
     return (
         <div className="footer">
