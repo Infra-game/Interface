@@ -79,6 +79,16 @@ export default function BugReport({userRole}) {
                     </Box>
                 </div>
             </FillWidget>
+
+            {
+                userRole.toLowerCase()==="admin" &&
+                <FillWidget  size="80">
+                <h1>
+                    Hello world 
+                </h1>
+                </FillWidget>
+
+            }
         </div>
     )
 }
