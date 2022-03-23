@@ -4,6 +4,11 @@ import axios from "../axiosConfig";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+/**
+ * Login Page 
+ * @param { string} changeType 
+ * @returns {Promise}
+ */
 const Login = ({changeType}) => {
   let history = useHistory();
   const [auth, setAuth] = useState("");

@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { tokenHeaders } from "../Utils";
 import { FillWidget } from '../component/Widgets';
 
+
+/**
+ * Home page 
+ * @param { string } userRole 
+ * @returns { HTMLElement }
+ */
 export default function NewUser({userRole}) {
 
 const addUser = () => {

@@ -1,5 +1,11 @@
 import {LoadWidget} from "../component/Widgets"
 
+
+/**
+ * Home page 
+ * @param { string } userRole 
+ * @returns { HTMLElement }
+ */
 const Home = ({userRole}) => {
     return(
         <div className="page home">

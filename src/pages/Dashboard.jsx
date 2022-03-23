@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import Sidebar from '../component/Sidebar';
 import Topbar from '../component/Topbar';
 
+/**
+ * Dashboard is the layout
+ * @param { string} pageName
+ * @param { string} <Page></Page>
+ * @returns {Promise}
+ */
 const Dashboard = ({Page,pageName}) => {
     const [darkmode, setDarkmode] = useState(false);
     

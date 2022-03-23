@@ -2,6 +2,12 @@ import { PeopleAlt,BugReport, Forum, Help, Monitor, Memory, SettingsApplications
 import { useEffect } from 'react';
 import {  Link  } from "react-router-dom";
 
+/**
+ * Create side bar with access to other pages 
+ * @param { string } role
+ * @param { string } Page
+ * @returns { HTMLElement }
+ */
 const Sidebar = ({page,role}) => {
     useEffect(() => {
         let listItems = document.getElementsByClassName("sidebarListItem");

@@ -2,6 +2,12 @@ import { PermIdentity , CalendarToday , PhoneAndroid,  AlternateEmail , Location
 import { Link } from "react-router-dom";
 import Sidebar from "../component/Sidebar"
 
+
+/**
+ * User page wich allow to create, modify and delete them
+ * @param { string } userRole 
+ * @returns {Promise}
+ */
 export default function User({userRole}) {
     if(userRole.toLowerCase()==="admin") {
         return (
