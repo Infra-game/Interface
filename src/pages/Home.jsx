@@ -1,15 +1,10 @@
-import {DummyWidget} from "../component/Widgets"
+import {LoadWidget} from "../component/Widgets"
 
 const Home = ({userRole}) => {
     return(
         <div className="page home">
             <div className="widget-row">
-                <DummyWidget size='15'/>
-                <DummyWidget size='30'/>
-                <DummyWidget size='30'/>
-            </div>
-            <div className="widget-row">
-                <DummyWidget size='90'/>
+                <LoadWidget size='70'/>
             </div>
         </div>
     )
