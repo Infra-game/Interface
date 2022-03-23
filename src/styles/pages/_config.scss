@@ -1,0 +1,30 @@
+.page.config {
+    display: flex;
+    flex-wrap: wrap;
+
+    .fill-widget {
+        &>* {
+            display: flex;
+            flex-wrap: wrap;
+    
+            &>* {
+                width: 30%;
+
+                form {
+                    width: 100%;
+                    display: flex;
+                }
+            }
+
+            .deliveryOption {
+                width: 100%;
+                div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+
+}

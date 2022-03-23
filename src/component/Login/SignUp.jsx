@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import React, {  useState } from 'react'
 
 const Signup = ({changePage}) => {
@@ -27,9 +27,9 @@ const Signup = ({changePage}) => {
     if(checkErrors()===true) {
       axios
       .post("http://localhost:5000/register", {
-        email : this.state.email,
-        username : this.state.username,
-        password : this.state.password1,
+        email,
+        username,
+        password,
         role : "user"
       })
       .then((res) => {
