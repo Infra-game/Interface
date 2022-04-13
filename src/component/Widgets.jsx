@@ -136,15 +136,17 @@ export const CPUWidget = ({size}) => {
             axios
             .post("/monitoring/load", {points : 15, after})
             .then((res) => {
-                const data = res.data.data.slice(0).reverse();
-                setData({
-                    labels : data.map((item) => formatDate(new Date(item.time * 1000),"JJ/MMMM/YYYY HH:mm:ss")),
-                    datasets : [{
-                        label : "Load",
-                        data : data.map((item) => item.load5*100),
-                        borderColor : 'rgb(59,87,231)',
-                    }]
-                })
+                if(res.data.data) {
+                    const data = res.data.data.slice(0).reverse();
+                    setData({
+                        labels : data.map((item) => formatDate(new Date(item.time * 1000),"JJ/MMMM/YYYY HH:mm:ss")),
+                        datasets : [{
+                            label : "Load",
+                            data : data.map((item) => item.load5*100),
+                            borderColor : 'rgb(59,87,231)',
+                        }]
+                    })
+                }
             })
         }
         fetchData();

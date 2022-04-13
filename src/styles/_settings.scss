@@ -35,3 +35,16 @@ button.icon-button {
         transform: scale(1.2);
     }
 }
+
+.react-confirm-alert {
+    .react-confirm-alert-body {
+        text-align: center;
+
+        .react-confirm-alert-button-group {
+            justify-content: center;
+            button {
+                background-color: $bleu_1;
+            }
+        }
+    }
+}

@@ -6,10 +6,10 @@ import { FillWidget } from '../component/Widgets';
 
 /**
  * Home page 
- * @param { string } userRole 
+ * @param { object } user 
  * @returns { HTMLElement }
  */
-export default function NewUser({userRole}) {
+export default function NewUser({user}) {
 
 const addUser = () => {
   axios.post("/users/add",{email,username,password,fullName,role}, tokenHeaders)

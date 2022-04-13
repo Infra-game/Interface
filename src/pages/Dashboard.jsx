@@ -8,7 +8,7 @@ import Topbar from '../component/Topbar';
  * @param { string} <Page></Page>
  * @returns {Promise}
  */
-const Dashboard = ({Page,pageName}) => {
+const Dashboard = ({Page,pageName,user, history}) => {
     const [darkmode, setDarkmode] = useState(false);
     
     const getTitle = (pageName) => {
@@ -43,14 +43,14 @@ const Dashboard = ({Page,pageName}) => {
 
     return (
         <div className={`dashboard ${darkmode ? "darkmode" : ""}`}>
-            <Topbar darkmode={darkmode} setDarkmode={() => setDarkmode(!darkmode)}/>
+            <Topbar history={history} user={user} darkmode={darkmode} setDarkmode={() => setDarkmode(!darkmode)}/>
             <div className="content">
-                <Sidebar page={pageName} />
+                <Sidebar user={user} history={history} page={pageName} />
                 <div className="page-content">
                     <div className="banner">
                         <h1>{getTitle(pageName)}</h1>
                     </div>
-                    <Page/>
+                    <Page user={user} history={history}/>
                 </div>
             </div>
         </div>

@@ -32,10 +32,10 @@ const difficulties = [
 
 /**
  * Config page used to create server with parameters
- * @param { string } userRole
+ * @param { object } user
  * @returns { HTMLElement }
  */
-export default function Config({ userRole }) {
+export default function Config({ user }) {
   const [name, setName] = useState("");
   const [motd, setMotd] = useState("");
   const [difficulty, setDifficulty] = useState("");

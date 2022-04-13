@@ -11,7 +11,7 @@ import axios from "../axiosConfig";
  * @param { string } role
  * @returns { HTMLElement }
  */
-const Register = ({changeType}) => {
+const Register = ({changeType, history}) => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [fullname, setFullname] = useState("");
@@ -30,7 +30,7 @@ const Register = ({changeType}) => {
         return error;
     }
 
-    const handleSubmit = ({history}) => {
+    const handleSubmit = () => {
         if(hasErrors()===false) {
             axios
             .post("/users/add", {email,username,fullname,password,role:"user"})

@@ -26,7 +26,7 @@ const Signup = ({changePage}) => {
   const handleSubmit = () => {
     if(checkErrors()===true) {
       axios
-      .post("http://localhost:5000/register", {
+      .post("/register", {
         email,
         username,
         password,

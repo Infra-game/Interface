@@ -7,15 +7,15 @@ import { GamesWidget } from '../component/Widgets';
  * definition of Games,statusGame, startGame, destroyGame consistencies
  * filling in the possible choices 
  * Game page 
- * @param { string } userRole
+ * @param { object } user
  * @returns 
  */
-const Games = ({userRole}) => {
+const Games = ({user}) => {
     const [response, setResponse] = useState("");
 
     const startGame = (gameName) => {
         axios
-        .get(`http://localhost:5000/games/${gameName}/start`)
+        .get(`/games/${gameName}/start`)
         .then((res) => {
             setResponse(res.data.message);
         })
@@ -23,7 +23,7 @@ const Games = ({userRole}) => {
 
     const destroyGame = (gameName) => {
         axios
-        .get(`http://localhost:5000/games/${gameName}/destroy`)
+        .get(`/games/${gameName}/destroy`)
         .then((res) => {
             setResponse(res.data.message);
         })

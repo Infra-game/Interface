@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { TextField } from "@mui/material";
-import axios from "axios";
+import axios from "../axiosConfig";
 import React, { useState } from "react";
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSubmit = ({history}) => {
     axios
-    .post("http://localhost:5000/login", {email, username, password})
+    .post("/login", {email, username, password})
     .then((res) => {
         if(!res.data.error) {
           localStorage.setItem("token", res.data.accessToken);

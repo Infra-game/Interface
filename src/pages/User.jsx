@@ -5,14 +5,13 @@ import Sidebar from "../component/Sidebar"
 
 /**
  * User page wich allow to create, modify and delete them
- * @param { string } userRole 
+ * @param { object } user 
  * @returns {Promise}
  */
-export default function User({userRole}) {
-    if(userRole.toLowerCase()==="admin") {
+export default function User({user}) {
+    if(user.role.toLowerCase()==="admin") {
         return (
             <div className="user">
-                <Sidebar role={userRole} />
                 <div className="content">
                     <div className="userTitleContainer">
                         <h1 className="userTitle">

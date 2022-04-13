@@ -4,11 +4,11 @@ import {  Link  } from "react-router-dom";
 
 /**
  * Create side bar with access to other pages 
- * @param { string } role
+ * @param { object } user
  * @param { string } Page
  * @returns { HTMLElement }
  */
-const Sidebar = ({page,role}) => {
+const Sidebar = ({page,user}) => {
     useEffect(() => {
         let listItems = document.getElementsByClassName("sidebarListItem");
         for(let i=0;i<listItems.length;i++) {
@@ -39,11 +39,13 @@ const Sidebar = ({page,role}) => {
                         <li id="stats" className="sidebarListItem">
                             <Timeline/><p>Stats</p>
                         </li>
-                        <Link to="/users">
-                            <li id="user" className="sidebarListItem">
-                                <PeopleAlt/><p>Utilisateurs</p>
-                            </li>
-                        </Link>
+                        {user.role.toLowerCase()==="admin" &&
+                            <Link to="/users">
+                                <li id="user" className="sidebarListItem">
+                                    <PeopleAlt/><p>Utilisateurs</p>
+                                </li>
+                            </Link>
+                        }
                         <Link to="/games">
                             <li id="games" className="sidebarListItem">
                                 <VideogameAsset/><p>Jeux</p>

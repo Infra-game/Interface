@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard';
 
 const ProtectedRoute = ({component: Component, pageName,...rest}) => {
     const [auth, setAuth] = useState("");
-    const [role, setRole] = useState("");
+    const [user, setUser] = useState({});
     const [error, setError] = useState("");
 
     const isAuth = async () => {
@@ -13,13 +13,13 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
         .get("/isAuth", {headers: {
         authorization : localStorage.getItem("token")
         }})
-        if(res.data.error) { 
+        if(res.data.error) {
             setError(res.data.message); //emettre une erreur recup par le try catch , la fonctionne que avec une erreur 200 
-            setAuth(false);
         } else {
-            setRole(res.data.role);
-            setAuth(res.data.auth);
+            setUser(res.data.user);
         }
+        setAuth(res.data.auth);
+        console.log(res.data.user);
     }
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const ProtectedRoute = ({component: Component, pageName,...rest}) => {
         return (
             <Route {...rest} render={(props) => {
                 if(auth===true) {
-                    return <Dashboard userRole={role} Page={Component} pageName={pageName} {...props} {...rest}/>
+                    return <Dashboard user={user} Page={Component} pageName={pageName} {...props} {...rest}/>
                 } else {
                     return (
                         <Redirect to={{pathname: "/login"}} />
