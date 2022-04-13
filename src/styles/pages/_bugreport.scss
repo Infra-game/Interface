@@ -1,5 +1,6 @@
 .page.bug {
-    .send {
-        background-color: $bleu_1 ;
+    .bugItem {
+        display: flex;
+        justify-content: space-between;
     }
 }
