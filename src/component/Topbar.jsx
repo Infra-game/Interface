@@ -3,6 +3,8 @@ import { LightModeRounded, DarkModeRounded, NotificationsRounded, PowerSettingsN
 import {  Link  } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Logo from "../assets/logo.svg";
+import LobbyWan from "../assets/lobbywan.svg";
 
 /**
  * create top bar on the site 
@@ -50,10 +52,12 @@ const Topbar = ({darkmode, setDarkmode, user, history}) => {
             <div className="topbarWrapper">
                 <div className="topbarGroup"> 
                     <Link to="/">
-                        <span className="logo"><h1>LobbyWan</h1></span>
+                        <div className="lobbywan">
+                            <img className="logo" src={Logo} alt="Logo LobbyWan" />
+                            <img className='text' src={LobbyWan} alt="Texte LobbyWan" />
+                        </div>
                     </Link>
                 </div>
-               
                 <div className="topbarGroup">
                     <span className='options'>
                         <button className='icon-button' onClick={() => setDarkmode()}>

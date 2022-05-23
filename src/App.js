@@ -14,6 +14,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBell, faEnvelope, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Registerlogin from './pages/Registerlogin';
 import Monitoring from './pages/Monitoring';
+import FAQ from './pages/FAQ';
 
 library.add(
     faBell,
@@ -34,6 +35,7 @@ function App() {
             <ProtectedRoute path="/config" exact component={Config} pageName="config"/>
             <ProtectedRoute path="/ftp" exact component={FTP} pageName="ftp"/>
             <ProtectedRoute path="/bugreport" exact component={BugReport} pageName="bugreport"/>
+            <ProtectedRoute path="/faq" exact component={FAQ} pageName="faq"/>
             <Route path="/login" exact render={()=><Registerlogin type="login"/>}/>
             <Route path="/register" exact render={()=><Registerlogin type="register"/>}/>
             <Route component={ NotFound } />

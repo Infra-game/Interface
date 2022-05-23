@@ -12,13 +12,13 @@ import { FillWidget } from '../component/Widgets';
 export default function NewUser({user}) {
 
 const addUser = () => {
-  axios.post("/users/add",{email,username,password,fullName,role}, tokenHeaders)
+  axios.post("/users/add",{email,username,password,fullname,role}, tokenHeaders)
 }
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [fullName, setfullName] = useState("");
+  const [fullname, setFullname] = useState("");
 
   return (
     <div className="page newUser">
@@ -31,7 +31,7 @@ const addUser = () => {
           </div>
           <div className="newUserItem">
             <label>Nom Complet</label>
-            <input type="text" placeholder="John Smith" value={fullName} onChange={(e) => setfullName(e.target.value)} />
+            <input type="text" placeholder="John Smith" value={fullname} onChange={(e) => setFullname(e.target.value)} />
           </div>
           <div className="newUserItem">
             <label>Email</label>
