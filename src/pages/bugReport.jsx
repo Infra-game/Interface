@@ -31,11 +31,11 @@ const BugTypes = [
 ];
 /**
  * Bug report page
- * @param { string } userRole
+ * @param { object } user
  * @returns { Promise }
  */
 
-export default function BugReport({ userRole }) {
+export default function BugReport({ user }) {
   const [bugList, setBugList] = useState([]);
   const [bugListTypes, setBugListTypes] = useState([]);
   const [bugType, setBugType] = useState("");
@@ -54,7 +54,7 @@ export default function BugReport({ userRole }) {
   }
 
   useEffect(() => {
-    if (userRole !== "admin") {
+    if (user.role !== "admin") {
       axios.get("/feedback").then((res) => {
         setBugList(res.data);
         setBugListTypes(
@@ -64,12 +64,12 @@ export default function BugReport({ userRole }) {
         );
       });
     }
-  }, [userRole]);
+  }, [user]);
 
   return (
     <div className="page bug">
       <FillWidget size="80">
-        {userRole !== "admin" ? (
+        {user.role !== "admin" ? (
           <div className="bugList">
             {bugList.length !== 0 &&
               bugListTypes.map((type, index) => {

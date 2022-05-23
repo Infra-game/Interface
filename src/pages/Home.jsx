@@ -3,10 +3,10 @@ import {LoadWidget} from "../component/Widgets"
 
 /**
  * Home page 
- * @param { string } userRole 
+ * @param { object } user 
  * @returns { HTMLElement }
  */
-const Home = ({userRole}) => {
+const Home = ({user}) => {
     return(
         <div className="page home">
             <div className="widget-row">

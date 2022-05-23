@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../axiosConfig";
 import { Redirect } from "react-router";
 
 const LoginControl = ({changePage}) => {
@@ -11,7 +11,7 @@ const LoginControl = ({changePage}) => {
 
   const handleSubmit = () => {
     axios
-    .post("http://localhost:5000/login", {email, username, password})
+    .post("/login", {email, username, password})
     .then((res) => {
         if(!res.data.error) {
           localStorage.setItem("token", res.data.accessToken);

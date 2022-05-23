@@ -26,7 +26,7 @@ const Registerlogin = ({type}) => {
             </div>
             <div className="side">
                  {type==="register" ?
-                 <Register changeType={() => changeType("login")} />
+                 <Register history={history} changeType={() => changeType("login")} />
                 : <div className="hidden"></div>
                 }
             </div>

@@ -19,15 +19,13 @@ import { FillWidget } from '../component/Widgets';
  * @param { function UserList(users, setUsers) }
  * @returns { Promise }
  */
-export default function UserList() {
+export default function UserList({user}) {
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
         axios.get("/users", tokenHeaders)
         .then((res) => {
-            if(JSON.stringify(users)!==JSON.stringify(res.data)){
-                setUsers(res.data) ; 
-            }
+            setUsers([...res.data]); 
         })
     },[users]) 
     
@@ -57,7 +55,7 @@ export default function UserList() {
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },
         {
-            field: 'user', headerName: 'User', width: 200, renderCell: (params) => {
+            field: 'username', headerName: 'Username', width: 200, renderCell: (params) => {
                 return (
                     <div className="userListUser">
                         <img className="userListImg" src={params.row.avatar} alt="" />
@@ -67,7 +65,7 @@ export default function UserList() {
             }
         },
         {
-            field: 'fullName',
+            field: 'fullname',
             headerName: 'Nom et prénom',
             width: 250,
         },
@@ -119,24 +117,34 @@ export default function UserList() {
         },
     ];
 
-    return (
-        <div className="page userList">
-            <FillWidget size="80">
-                <Link  to ="/newUser">
-                    <button className="userAddButton">
-                        Create
-                    </button>
-                </Link>
-                {users.length>0 && 
-                <DataGrid
-                rows={users}
-                enableSelectionOnClick
-                columns={columns}
-                pageSize={15}
-                rowsPerPageOptions={[10]}
-                checkboxSelection
-                />} 
-            </FillWidget>
-        </div>
-    )
+    if(user.role.toLowerCase()==="admin") {
+        return (
+            <div className="page userList">
+                <FillWidget size="80">
+                    <h1>Liste des utilisateurs</h1>
+                    {users.length>0 && 
+                    <DataGrid
+                        rows={users}
+                        enableSelectionOnClick
+                        columns={columns}
+                        pageSize={15}
+                        rowsPerPageOptions={[10]}
+                        checkboxSelection
+                        autoHeight
+                    />} 
+                    <Link  to ="/newUser">
+                        <button className="userAddButton">
+                            Create
+                        </button>
+                    </Link>
+                </FillWidget>
+            </div>
+        )
+    } else {
+        return (
+            <div className="page error">
+                <div className="content">Vous n'avez pas les droits requis.</div>
+            </div>
+        )
+    }
 }

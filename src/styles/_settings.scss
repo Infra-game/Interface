@@ -1,3 +1,4 @@
+@font-face {font-family: "ChangelingNeoW01-Reg"; src: url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.eot"); src: url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.woff") format("woff"), url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/4abf7a79d999931ed0b40d781020c9be.svg#ChangelingNeoW01-Reg") format("svg"); }
 $bleu_1: rgb(59,87,231);
 $bleu_2: rgb(0,72,177);
 $gray : #8A92A5;
@@ -13,7 +14,7 @@ html, body, #root {
 body {
     margin: 0;
     background-color: $lightgray_2;
-    font-family: 'Inter';
+    font-family: "ChangelingNeoW01-Reg";
 }
 
 a {
@@ -33,5 +34,18 @@ button.icon-button {
     
     &:hover {
         transform: scale(1.2);
+    }
+}
+
+.react-confirm-alert {
+    .react-confirm-alert-body {
+        text-align: center;
+
+        .react-confirm-alert-button-group {
+            justify-content: center;
+            button {
+                background-color: $bleu_1;
+            }
+        }
     }
 }

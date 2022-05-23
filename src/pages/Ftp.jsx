@@ -22,10 +22,10 @@ const acces = [
 
 /**
  * FTP Page for ftp access
- * @param { string } userRole
+ * @param { object } user
  * @returns { HTMLElement }
  */
-const FTP = ({userRole}) => {
+const FTP = ({user}) => {
     const [accesFTP, setacces] = React.useState('Total');
     const [Password, setpassword] = React.useState('');
     const [ConfPassword, setConfpassword] = React.useState('');
